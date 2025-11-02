@@ -22,6 +22,7 @@ const navigationLinks: readonly NavigationLink[] = [
   { name: "Team", link: "/projects" },
   { name: "Speaking", link: "/speaking" },
   { name: "Communication", link: "/toolbox" },
+  { name: "Tutorial", link: "/tutorial" },
 ] as const;
 
 const Navbar: React.FC = () => {
