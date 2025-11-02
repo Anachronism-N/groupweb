@@ -1,3 +1,7 @@
+import createMDX from "@next/mdx";
+import rehypeRaw from "rehype-raw";
+
+// --- Velite Build Logic (保持不变) ---
 const isDev = process.argv.indexOf("dev") !== -1;
 const isBuild = process.argv.indexOf("build") !== -1;
 if (!process.env.VELITE_STARTED && (isDev || isBuild)) {
@@ -8,6 +12,8 @@ if (!process.env.VELITE_STARTED && (isDev || isBuild)) {
 
 /** @type {import('next').NextConfig} */
 const config = {
+  // 告诉 Next.js 我们要处理 .mdx 文件
+  pageExtensions: ["js", "jsx", "ts", "tsx", "md", "mdx"],
   async redirects() {
     return [
       {
@@ -47,4 +53,22 @@ const config = {
   },
 };
 
-export default config;
+// --- MDX 配置 (这是新增的核心部分) ---
+const withMDX = createMDX({
+  extension: /\.mdx?$/,
+  options: {
+    remarkPlugins: [], // 如果你有 remark 插件，可以放在这里
+    rehypePlugins: [
+      // 这里是解决问题的关键配置
+      [
+        rehypeRaw,
+        {
+          passThrough: ["mdxjsEsm", "mdxFlowExpression", "mdxTextExpression"],
+        },
+      ],
+    ],
+  },
+});
+
+// --- 导出被 MDX 包装后的配置 ---
+export default withMDX(config);

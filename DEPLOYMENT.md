@@ -13,6 +13,7 @@
 ### 1. 准备项目
 
 确保您的项目包含以下文件：
+
 - `package.json` - 包含构建和启动脚本
 - `next.config.mjs` - Next.js 配置文件
 - `.env.example` - 环境变量示例文件
@@ -47,6 +48,7 @@ git push origin main
 在 Zeabur 项目设置中添加以下环境变量：
 
 #### 必需的环境变量：
+
 ```
 NEXT_PUBLIC_SUPABASE_URL=your_supabase_url
 NEXT_PUBLIC_SUPABASE_ANON=your_supabase_anon_key
@@ -55,6 +57,7 @@ NODE_ENV=production
 ```
 
 #### 可选的环境变量：
+
 ```
 SPOTIFY_CLIENT_ID=your_spotify_client_id
 SPOTIFY_CLIENT_SECRET=your_spotify_client_secret
@@ -86,10 +89,12 @@ POSTGRES_URL=your_postgres_url
 ### 常见问题：
 
 1. **构建失败**
+
    - 检查 `package.json` 中的脚本是否正确
    - 确保所有依赖都已正确安装
 
 2. **环境变量问题**
+
    - 确保所有必需的环境变量都已设置
    - 检查环境变量的值是否正确
 
@@ -100,6 +105,7 @@ POSTGRES_URL=your_postgres_url
 ### 查看日志
 
 在 Zeabur Dashboard 中，您可以查看：
+
 - 构建日志
 - 运行时日志
 - 错误信息
@@ -107,12 +113,14 @@ POSTGRES_URL=your_postgres_url
 ## 域名配置
 
 部署成功后，您可以：
+
 1. 使用 Zeabur 提供的默认域名
 2. 配置自定义域名（在项目设置中）
 
 ## 性能优化
 
 为了获得最佳性能，建议：
+
 1. 启用 Next.js 的图片优化
 2. 配置适当的缓存策略
 3. 使用 CDN 加速静态资源
