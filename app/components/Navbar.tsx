@@ -1,6 +1,7 @@
 "use client";
 
 import Link from "next/link";
+import Image from "next/image";
 import { SocialPill } from "./SocialPill";
 import { usePathname } from "next/navigation";
 import { CloseButton, Dialog, DialogPanel } from "@headlessui/react";
@@ -20,7 +21,7 @@ const navigationLinks: readonly NavigationLink[] = [
   { name: "Blog", link: "/blog" },
   { name: "Team", link: "/projects" },
   { name: "Speaking", link: "/speaking" },
-  { name: "Tutorial", link: "/toolbox" },
+  { name: "Communication", link: "/toolbox" },
 ] as const;
 
 const Navbar: React.FC = () => {
@@ -46,10 +47,12 @@ function DesktopNav() {
     >
       <div className="w-[104px]">
         <Link href="/" aria-label="Home">
-          <img
+          <Image
             className="h-6 w-6"
             src="/bcoyerlogo_dark.svg"
             alt="Braydon's Logo"
+            width={24}
+            height={24}
           />
         </Link>
       </div>
@@ -139,10 +142,12 @@ interface NavLogoProps {
 const NavLogo: React.FC<NavLogoProps> = ({ onClickCallback }) => {
   return (
     <Link href="/" onClick={() => onClickCallback(false)} aria-label="Home">
-      <img
+      <Image
         className="h-8 w-8"
         src="/bcoyerlogo_dark.svg"
         alt="Braydon's Logo"
+        width={32}
+        height={32}
       />
     </Link>
   );
