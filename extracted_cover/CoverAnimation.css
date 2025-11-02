@@ -1,0 +1,64 @@
+/* 封面动画组件的样式 */
+
+/* 字体定义 */
+.font-idgrotesk {
+  font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+  font-weight: 700;
+}
+
+.font-grotesk {
+  font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+  font-weight: 800;
+}
+
+/* 颜色变量 */
+:root {
+  --color-secondary-3: #333333; /* 假设的默认颜色，可根据需要调整 */
+}
+
+/* 颜色类 */
+.text-secondary-color-3 {
+  color: var(--color-secondary-3);
+}
+
+/* 响应式调整 */
+@media (max-width: 640px) {
+  .text-3xl { font-size: 1.875rem; line-height: 2.25rem; }
+  .text-xl { font-size: 1.25rem; line-height: 1.75rem; }
+}
+
+@media (min-width: 640px) {
+  .sm\:text-3xl { font-size: 1.875rem; line-height: 2.25rem; }
+  .sm\:text-2xl { font-size: 1.5rem; line-height: 2rem; }
+}
+
+@media (min-width: 1024px) {
+  .lg\:text-4xl { font-size: 2.25rem; line-height: 2.5rem; }
+  .lg\:text-2xl { font-size: 1.5rem; line-height: 2rem; }
+}
+
+/* 动画容器样式 */
+.cover-animation-container {
+  width: 100%;
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: white;
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: 9999;
+  transition: opacity 0.3s ease-out;
+}
+
+.cover-animation-container.fade-out {
+  opacity: 0;
+}
+
+/* 文本样式增强 */
+.cover-text {
+  text-align: center;
+  text-transform: uppercase;
+  letter-spacing: 0.15em;
+}

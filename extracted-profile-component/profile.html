@@ -1,0 +1,152 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Profile Component - Hover Image Effect</title>
+    <style>
+        /* Base styles */
+        @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap');
+        
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: #f8fafc;
+            margin: 0;
+            padding: 20px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+        }
+        
+        /* Card container with hover effect */
+        .profile-card {
+            background: white;
+            border-radius: 20px;
+            padding: 24px;
+            box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
+            transition: box-shadow 0.3s ease;
+            width: 100%;
+            max-width: 400px;
+        }
+        
+        .profile-card:hover {
+            box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05);
+        }
+        
+        /* Image container with absolute positioning for both images */
+        .image-container {
+            position: relative;
+            width: 120px;
+            height: 120px;
+            border-radius: 50%;
+            overflow: hidden;
+            margin-bottom: 24px;
+        }
+        
+        /* Common image styles */
+        .profile-image {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: opacity 0.3s ease-in-out;
+        }
+        
+        /* Default image is visible by default */
+        .default-image {
+            opacity: 1;
+            background-color: #e2e8f0;
+        }
+        
+        /* Hover image is hidden by default */
+        .hover-image {
+            opacity: 0;
+            background-color: #cbd5e1;
+        }
+        
+        /* When hovering over the card, swap the image opacity */
+        .profile-card:hover .default-image {
+            opacity: 0;
+        }
+        
+        .profile-card:hover .hover-image {
+            opacity: 1;
+        }
+        
+        /* Text content styles */
+        .text-content h2 {
+            font-size: 24px;
+            font-weight: 700;
+            margin: 0 0 12px 0;
+            color: #1a202c;
+        }
+        
+        .text-content p {
+            font-size: 16px;
+            line-height: 1.6;
+            color: #4a5568;
+            margin: 0;
+        }
+        
+        /* Responsive adjustments */
+        @media (max-width: 640px) {
+            .profile-card {
+                padding: 20px;
+            }
+            
+            .image-container {
+                width: 100px;
+                height: 100px;
+            }
+            
+            .text-content h2 {
+                font-size: 20px;
+            }
+            
+            .text-content p {
+                font-size: 14px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Main profile card with hover trigger -->
+    <div class="profile-card">
+        <!-- Image container with both default and hover images -->
+        <div class="image-container">
+            <!-- Default image - shown initially -->
+            <img 
+                src="assets/img/Me.png" 
+                alt="Profile - Default" 
+                class="profile-image default-image"
+                onError="this.style.display='none'; this.parentElement.innerHTML+='<div style="width:100%; height:100%; background:#e2e8f0; display:flex; align-items:center; justify-content:center; font-size:48px;">👤</div>';"
+            >
+            
+            <!-- Hover image - shown when hovering over card -->
+            <img 
+                src="assets/img/mecloud.png" 
+                alt="Profile - Hover" 
+                class="profile-image hover-image"
+                onError="this.style.display='none'; this.parentElement.innerHTML+='<div style="width:100%; height:100%; background:#4285f4; display:flex; align-items:center; justify-content:center; font-size:48px; color:white;">👋</div>';"
+            >
+        </div>
+        
+        <!-- Text content -->
+        <div class="text-content">
+            <h2>Hey, I'm Braydon</h2>
+            <p>Hover over this card to see the profile picture change. This implementation uses CSS transitions to smoothly toggle between two images when hovering.</p>
+        </div>
+    </div>
+    
+    <script>
+        // Optional: Add a small JavaScript to ensure fallback works properly
+        document.addEventListener('DOMContentLoaded', function() {
+            // The hover effect is handled purely with CSS
+            console.log('Profile component loaded - hover to change image!');
+        });
+    </script>
+</body>
+</html>
