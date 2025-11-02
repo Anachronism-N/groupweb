@@ -1,6 +1,7 @@
 "use client";
 import { useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
+import Image from "next/image";
 import { GridWrapper } from "@/app/components/GridWrapper";
 
 interface TeamMember {
@@ -191,7 +192,13 @@ export default function TeamPage() {
           {projects.map((project) => (
             <div key={project.title} className="space-y-12">
               <GridWrapper className="px-10">
-                <img src={project.image} alt={project.title} className="drama-shadow rounded-xl" />
+                <Image 
+                  src={project.image} 
+                  alt={project.title} 
+                  className="drama-shadow rounded-xl" 
+                  width={800}
+                  height={600}
+                />
               </GridWrapper>
               <GridWrapper className="px-10">
                 <div className="max-w-2xl text-balance">

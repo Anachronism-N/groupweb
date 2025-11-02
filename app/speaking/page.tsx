@@ -1,3 +1,4 @@
+import Image from "next/image";
 import { ShadowBox } from "@/app/components/ShadowBox";
 import { NewsletterSignUp } from "@/app/components/NewsletterSignUp";
 import { Button } from "@/app/components/Button";
@@ -250,19 +251,23 @@ export default function SpeakingPage() {
                   <div className="mt-12 flex w-full space-x-4">
                     <div className="relative">
                       <ShadowBox width={200} height={200}></ShadowBox>
-                      <img
+                      <Image
                         className="absolute left-1 top-2 h-[186px] w-[186px] rotate-[9deg] rounded-lg object-cover shadow"
                         src="/braydon_headshot_3.jpg"
                         alt=""
+                        width={186}
+                        height={186}
                       />
                     </div>
 
                     <div className="relative">
                       <ShadowBox width={200} height={200}></ShadowBox>
-                      <img
+                      <Image
                         className="absolute left-1 top-2 h-[186px] w-[186px] rotate-[-8deg] rounded-lg object-cover shadow"
                         src="/braydon_speaking_photo_square.jpg"
                         alt=""
+                        width={186}
+                        height={186}
                       />
                     </div>
                   </div>
