@@ -1,0 +1,15 @@
+{
+  "name": "braydoncoyer-portfolio",
+  "services": [
+    {
+      "name": "portfolio-web",
+      "type": "web",
+      "buildCommand": "npm run build",
+      "startCommand": "npm start",
+      "port": 3000,
+      "environment": {
+        "NODE_ENV": "production"
+      }
+    }
+  ]
+}
