@@ -43,7 +43,7 @@ export default function RootLayout({
       className={`bg-bg-primary ${GeistMono.variable} ${GeistSans.variable}`}
     >
       <body className="flex min-h-screen flex-col font-sans md:max-w-7xl lg:mx-auto lg:flex-row">
-        <SplashScreen autoHideAfterMs={5000} showOnRootPathOnly={true}>
+        <SplashScreen showOnRootPathOnly={true}>
           <main
             className={cx(
               "relative flex flex-1 flex-col overflow-x-hidden border-x border-border-primary/50",

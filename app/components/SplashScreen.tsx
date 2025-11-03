@@ -1,6 +1,7 @@
 "use client";
 
 import React, { useState, useEffect } from "react";
+import Image from "next/image";
 
 // 简单的导入页组件
 function SplashScreen({
@@ -61,11 +62,13 @@ function SplashScreen({
       {/* 导入页覆盖层 */}
       <div className="fixed inset-0 z-50 flex flex-col items-center justify-center bg-white">
         {/* 图片 */}
-        <img
+        <Image
           src={currentImage === 1 ? "/leadin/intro1.png" : "/leadin/intro2.png"}
           alt={`Introduction ${currentImage}`}
           className="animate-bounce-in h-64 max-h-[60vh] w-auto max-w-[80vw] object-contain"
           key={`image-${currentImage}`} // 添加key以确保图片切换时重新应用动画
+          width={256}
+          height={256}
         />
 
         {/* 跳过按钮 */}

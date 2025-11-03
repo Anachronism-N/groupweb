@@ -3,6 +3,7 @@
 import { BentoCard } from "./BentoCard";
 import { motion } from "framer-motion";
 import React from "react";
+import Image from "next/image";
 
 export function SpeakingBento() {
   const [isHovered, setIsHovered] = React.useState(false);
@@ -309,10 +310,12 @@ function PrimaryPhoto() {
         </defs>
       </svg>
 
-      <img
+      <Image
         className="absolute left-1/2 top-1/2 h-[100px] w-[100px] -translate-x-1/2 -translate-y-1/2 transform rounded-full object-cover"
         src="/braydon_speaking_photo.jpeg"
-        alt=""
+        alt="Braydon speaking photo"
+        width={100}
+        height={100}
       />
     </span>
   );
@@ -379,10 +382,12 @@ function SecondaryPhoto({ imgSrc }: { imgSrc: string }) {
           </filter>
         </defs>
       </svg>
-      <img
+      <Image
         className="absolute left-1/2 top-1/2 h-[64px] w-[64px] -translate-x-1/2 -translate-y-1/2 transform rounded-full object-cover"
         src={imgSrc}
-        alt=""
+        alt="Secondary photo"
+        width={64}
+        height={64}
       />
     </span>
   );
