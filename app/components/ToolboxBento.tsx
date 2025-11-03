@@ -99,7 +99,7 @@ export function ToolboxBento({
           </div>
         </div>
       ) : (
-        <div className="mx-auto grid max-w-4xl grid-cols-4 justify-items-center gap-3 px-2 sm:grid-cols-5 sm:gap-4 sm:px-4 md:grid-cols-6 md:gap-5 lg:grid-cols-7 lg:gap-6 xl:grid-cols-8">
+        <div className="mx-auto grid max-w-4xl grid-cols-6 justify-items-center gap-3 px-2 sm:gap-4 sm:px-4 md:gap-5 lg:gap-6">
           {items}
         </div>
       )}

@@ -335,10 +335,10 @@ const Tutorial = () => {
                 transition={{ duration: 0.6, delay: 0.2 }}
                 className="mb-8 text-center lg:mb-12"
               >
-                <h2 className="mb-4 text-2xl font-bold text-gray-900 sm:text-3xl lg:text-4xl">
+                <h2 className="text-balance text-3xl font-medium leading-tight tracking-tighter text-text-primary md:text-4xl md:leading-[48px]">
                   My Development Toolbox
                 </h2>
-                <p className="mx-auto max-w-2xl text-base text-gray-600 lg:text-lg">
+                <p className="mt-3 text-sm/6 text-text-secondary md:text-base">
                   Hardware & software tools that power my development workflow
                   and enhance productivity
                 </p>

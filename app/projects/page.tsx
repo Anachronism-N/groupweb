@@ -24,28 +24,28 @@ const teamMembers: TeamMember[] = [
     name: "Li Yixuan",
     role: "UI Designer",
     image: "/profile/lyx_profile.jpg",
-    hoverImage: "/profile/lyx_hover.png",
+    hoverImage: "/profile/lyx_hover.jpg",
     bio: "Provides aesthetically pleasing materials for the website, including background images, logos, cartoon character designs.",
   },
   {
     name: "Liu Lixin",
     role: "Product Manager",
     image: "/profile/llx_profile.jpg",
-    hoverImage: "/profile/llx_hover.png",
+    hoverImage: "/profile/llx_hover.jpg",
     bio: "Coordinated the entire project, assigned tasks to everyone, and also participated in the front-end design and code writing.",
   },
   {
     name: "Li Siyi",
     role: "Developer",
     image: "/profile/lsy_profile.jpg",
-    hoverImage: "/profile/lsy_hover.png",
+    hoverImage: "/profile/lsy_hover.jpg",
     bio: "Involved in the document writing and some of the development work, including website construction and markdown rendering.",
   },
   {
     name: "Nie Zichao",
     role: "Developer",
     image: "/profile/nzc_profile.jpg",
-    hoverImage: "/profile/nzc_hover.png",
+    hoverImage: "/profile/nzc_hover.jpg",
     bio: "Involved in the document writing as well as the partial development, including interaction optimization, function integration and migration.",
   },
 ];
@@ -158,6 +158,12 @@ export default function TeamPage() {
       {/* 团队成员展示 - 保留新增内容在前面 */}
       <GridWrapper>
         <h2 className="mb-8 text-center text-2xl font-medium">Our Team</h2>
+        <div className="mx-auto mb-12 max-w-4xl text-center">
+          <p className="text-lg leading-relaxed text-text-secondary">
+            We are a passionate and diverse team of innovators, designers, and
+            developers.
+          </p>
+        </div>
         <div className="grid grid-cols-1 justify-items-center gap-12 md:grid-cols-2">
           {teamMembers.map((member) => (
             <div
