@@ -106,7 +106,7 @@ export default function AboutPage() {
                       <ShadowBox width={188} height={278}></ShadowBox>
                       <img
                         className="absolute left-0 top-0 h-[270px] w-[180px] rotate-[-8deg] rounded-lg object-cover shadow"
-                        src="/knights_kwest.jpeg"
+                        src="/lyx/LYX_1.jpg"
                         alt="A headshot"
                       />
                     </div>
@@ -170,7 +170,7 @@ export default function AboutPage() {
                     <ShadowBox width={188} height={278}></ShadowBox>
                     <img
                       className="absolute left-0 top-0 h-[270px] w-[180px] rotate-[8deg] rounded-lg object-cover shadow"
-                      src="/braydon_headshot_3.jpg"
+                      src="/lyx/LYX_2.jpg"
                       alt="Speaking at C3 Conf!"
                     />
                   </div>
@@ -207,7 +207,7 @@ export default function AboutPage() {
                     <ShadowBox width={188} height={278}></ShadowBox>
                     <img
                       className="absolute left-0 top-0 h-[270px] w-[180px] rotate-[-8deg] rounded-lg object-cover shadow"
-                      src="/braydon_and_pj.jpeg"
+                      src="/lyx/LYX_1.jpg"
                       alt="A headshot"
                     />
                   </div>
@@ -253,30 +253,6 @@ export default function AboutPage() {
                 </div>
               </div>
             </div>
-          </div>
-
-          {/* About */}
-          <div className="relative space-y-8 text-center">
-            <div className="space-y-4">
-              <GridWrapper>
-                <div className="text-center text-sm font-medium text-indigo-600">
-                  <span>Experience</span>
-                </div>
-              </GridWrapper>
-              <GridWrapper>
-                <h2 className="mx-auto max-w-lg text-balance text-3xl font-medium leading-[40px] tracking-tighter text-text-primary">
-                  My work history and achievements timeline.
-                </h2>
-              </GridWrapper>
-            </div>
-          </div>
-          <div className="space-y-16">
-            <GridWrapper>
-              <Resume />
-            </GridWrapper>
-            {/* <div className="flex justify-center">
-            <Button variant="secondary">Download Resume</Button>
-          </div> */}
           </div>
 
           <section className="relative space-y-16">

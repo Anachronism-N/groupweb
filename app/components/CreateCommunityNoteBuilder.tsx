@@ -15,10 +15,15 @@ export function CreateCommunityNoteBuilder({
   creator_avatar_url: string;
 }) {
   const [message, setMessage] = useState("");
-  const [patternIndex, setPatternIndex] = useState(() =>
-    Math.floor(Math.random() * patterns.length),
-  );
+  const [patternIndex, setPatternIndex] = useState(0); // Start with 0 to avoid hydration mismatch
   const [rotation, setRotation] = useState(0);
+  const [isClient, setIsClient] = useState(false);
+
+  // Initialize random pattern index only on client side
+  useEffect(() => {
+    setIsClient(true);
+    setPatternIndex(Math.floor(Math.random() * patterns.length));
+  }, []);
 
   const handlePrevPattern = () => {
     setPatternIndex((prev) => (prev - 1 + patterns.length) % patterns.length);

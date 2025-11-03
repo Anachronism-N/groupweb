@@ -1,83 +1,109 @@
 "use client";
 
-import * as React from "react";
-import { motion } from "framer-motion";
+import React, { useState, useEffect } from "react";
 
-// 核心动画组件 - 带有缩放动画效果的Logo (这部分无需修改)
-const LogoAnimation = ({ onComplete }: { onComplete?: () => void }) => {
-  return (
-    <div className="fixed inset-0 z-50 flex items-center justify-center bg-white">
-      <div className="flex items-center justify-center uppercase tracking-wider">
-        <motion.div
-          initial={{ scale: 0 }}
-          animate={{ scale: [0, 1.2, 1] }}
-          transition={{ duration: 1, repeat: 1, repeatType: "mirror" }}
-          onAnimationComplete={onComplete}
-        >
-          <h1 className="text-center text-3xl font-bold text-black sm:text-3xl lg:text-4xl">
-            Braydon
-          </h1>
-          <p className="text-center text-xl font-extrabold text-black sm:text-2xl lg:text-2xl">
-            Coyer
-          </p>
-        </motion.div>
-      </div>
-    </div>
-  );
-};
-
-// --- 以下是主要修改区域 ---
-
-// 封面动画管理器 - 控制显示时间和条件
-const SplashScreen = ({
+// 简单的导入页组件
+function SplashScreen({
   children,
   showOnRootPathOnly = true,
-  autoHideAfterMs, // <-- 第 1 步：接收新的 prop
 }: {
   children: React.ReactNode;
   showOnRootPathOnly?: boolean;
-  autoHideAfterMs?: number; // <-- 第 2 步：在类型定义中声明它
-}) => {
-  const [isDisplaying, setIsDisplaying] = React.useState(true);
+}) {
+  // 状态管理
+  const [showSplash, setShowSplash] = useState(true);
+  const [currentImage, setCurrentImage] = useState(1); // 1表示intro1.png，2表示intro2.png
 
-  // 这个 useEffect 保持不变，用于处理只在首页显示的逻辑
-  React.useEffect(() => {
-    const shouldShow =
-      !showOnRootPathOnly ||
-      (typeof window !== "undefined" && window.location.pathname === "/");
-
-    if (!shouldShow) {
-      setIsDisplaying(false);
+  useEffect(() => {
+    // 仅在浏览器端执行
+    if (typeof window === "undefined") {
+      setShowSplash(false);
       return;
     }
+
+    // 检查是否在根路径
+    const shouldShowSplash =
+      !showOnRootPathOnly || window.location.pathname === "/";
+    if (!shouldShowSplash) {
+      setShowSplash(false);
+      return;
+    }
+
+    // 1.5秒后切换到第二张图片
+    const imageSwitchTimer = setTimeout(() => {
+      setCurrentImage(2);
+
+      // 再等待1.5秒后显示主内容
+      const hideSplashTimer = setTimeout(() => {
+        setShowSplash(false);
+      }, 1500);
+
+      return () => clearTimeout(hideSplashTimer);
+    }, 1500);
+
+    // 清理定时器
+    return () => clearTimeout(imageSwitchTimer);
   }, [showOnRootPathOnly]);
 
-  // --- 第 3 步：添加新的 useEffect 来处理自动隐藏 ---
-  React.useEffect(() => {
-    // 检查 autoHideAfterMs 是否被传入并且是一个有效的数字
-    if (typeof autoHideAfterMs === "number") {
-      // 设置一个定时器
-      const timer = setTimeout(() => {
-        setIsDisplaying(false); // 时间到了，隐藏封面
-      }, autoHideAfterMs);
-
-      // 这很关键：返回一个清理函数。
-      // 如果组件在定时器触发前被卸载，这个函数会清除定时器，防止内存泄漏。
-      return () => clearTimeout(timer);
-    }
-  }, [autoHideAfterMs]); // 依赖数组中包含 autoHideAfterMs
-
-  // 手动隐藏封面的方法 (由动画完成时调用)
-  const hideCover = () => {
-    setIsDisplaying(false);
+  // 跳过导入页
+  const handleSkip = () => {
+    setShowSplash(false);
   };
 
+  // 如果不显示导入页，直接返回子内容
+  if (!showSplash) {
+    return children;
+  }
+
+  // 返回导入页UI
   return (
     <>
-      {isDisplaying && <LogoAnimation onComplete={hideCover} />}
-      {children}
+      {/* 导入页覆盖层 */}
+      <div className="fixed inset-0 z-50 flex flex-col items-center justify-center bg-white">
+        {/* 图片 */}
+        <img
+          src={currentImage === 1 ? "/leadin/intro1.png" : "/leadin/intro2.png"}
+          alt={`Introduction ${currentImage}`}
+          className="animate-bounce-in h-64 max-h-[60vh] w-auto max-w-[80vw] object-contain"
+          key={`image-${currentImage}`} // 添加key以确保图片切换时重新应用动画
+        />
+
+        {/* 跳过按钮 */}
+        <button
+          onClick={handleSkip}
+          className="absolute bottom-8 text-sm text-gray-500 hover:text-gray-800"
+        >
+          Skip
+        </button>
+
+        {/* 内联CSS动画 */}
+        <style jsx>{`
+          @keyframes bounceIn {
+            0% {
+              opacity: 0;
+              transform: scale(0);
+            }
+            30% {
+              transform: scale(1.1);
+            }
+            60% {
+              transform: scale(0.9);
+            }
+            100% {
+              opacity: 1;
+              transform: scale(1);
+            }
+          }
+          .animate-bounce-in {
+            animation: bounceIn 1s ease-out 1;
+          }
+        `}</style>
+      </div>
+
+      {/* 主内容 - 当导入页显示时，将主内容隐藏 */}
+      <div style={{ display: "none" }}>{children}</div>
     </>
   );
-};
+}
 
 export default SplashScreen;

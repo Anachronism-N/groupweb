@@ -1,14 +1,21 @@
-import React from "react";
+"use client";
+
+import React, { useState, useEffect } from "react";
 import { BentoCard } from "./BentoCard";
 
 const dayNames = ["SUN", "MON", "TUE", "WED", "THU", "FRI", "SAT"];
 
-const CalendarDay: React.FC<{ day: number | string; isHeader?: boolean }> = ({
+const CalendarDay: React.FC<{ 
+  day: number | string; 
+  isHeader?: boolean;
+  randomValue?: number;
+}> = ({
   day,
   isHeader,
+  randomValue = 0,
 }) => {
   const randomBgWhite =
-    !isHeader && Math.random() < 0.3
+    !isHeader && randomValue < 0.3
       ? "bg-white/75 text-text-secondary hover:bg-white"
       : "text-text-tertiary";
 
@@ -26,6 +33,9 @@ const CalendarDay: React.FC<{ day: number | string; isHeader?: boolean }> = ({
 };
 
 export function CalendarBento() {
+  const [randomValues, setRandomValues] = useState<number[]>([]);
+  const [isClient, setIsClient] = useState(false);
+
   const currentDate = new Date();
   const currentMonth = currentDate.toLocaleString("default", { month: "long" });
   const currentYear = currentDate.getFullYear();
@@ -36,6 +46,13 @@ export function CalendarBento() {
     currentDate.getMonth() + 1,
     0,
   ).getDate();
+
+  // Generate random values on client side only
+  useEffect(() => {
+    setIsClient(true);
+    const values = Array(daysInMonth).fill(0).map(() => Math.random());
+    setRandomValues(values);
+  }, [daysInMonth]);
 
   const bookingLink = `https://cal.com/braydon-coyer-8ayx8q/30min?month=${currentYear}-${(
     currentDate.getMonth() + 1
@@ -56,7 +73,13 @@ export function CalendarBento() {
       )),
       ...Array(daysInMonth)
         .fill(null)
-        .map((_, i) => <CalendarDay key={`date-${i + 1}`} day={i + 1} />),
+        .map((_, i) => (
+          <CalendarDay 
+            key={`date-${i + 1}`} 
+            day={i + 1} 
+            randomValue={isClient ? randomValues[i] || 0 : 0}
+          />
+        )),
     ];
 
     return days;
