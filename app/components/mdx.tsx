@@ -15,30 +15,49 @@ interface MDXProps {
 
 function Table({ data }) {
   let headers = data.headers.map((header, index) => (
-    <th key={index}>{header}</th>
+    <th
+      key={index}
+      className="border-b-2 border-indigo-200 bg-gradient-to-r from-indigo-50 to-purple-50 px-6 py-4 text-left text-sm font-semibold text-gray-900 first:rounded-tl-lg last:rounded-tr-lg"
+    >
+      {header}
+    </th>
   ));
   let rows = data.rows.map((row, index) => (
-    <tr key={index}>
+    <tr
+      key={index}
+      className="transition-all duration-200 hover:bg-gradient-to-r hover:from-gray-50 hover:to-indigo-50 hover:shadow-md"
+    >
       {row.map((cell, cellIndex) => (
-        <td key={cellIndex}>{cell}</td>
+        <td
+          key={cellIndex}
+          className="border-b border-gray-200 px-6 py-4 text-sm text-gray-700 transition-all duration-200"
+        >
+          {cell}
+        </td>
       ))}
     </tr>
   ));
 
   return (
-    <table>
-      <thead>
-        <tr>{headers}</tr>
-      </thead>
-      <tbody>{rows}</tbody>
-    </table>
+    <div className="my-8 overflow-hidden rounded-lg border border-gray-200 bg-white shadow-xl">
+      <table className="min-w-full divide-y divide-gray-200">
+        <thead>
+          <tr>{headers}</tr>
+        </thead>
+        <tbody className="divide-y divide-gray-200 bg-white">{rows}</tbody>
+      </table>
+    </div>
   );
 }
 
 function CustomLink(props) {
   let href = props.href;
 
-  const styles = `font-medium border-b border-indigo-400 hover:border-b-2 text-slate-900 transition-all duration-75`;
+  const styles = `font-medium text-indigo-600 hover:text-indigo-800 transition-all duration-300 relative inline-block
+    after:absolute after:bottom-0 after:left-0 after:h-0.5 after:w-0 after:bg-gradient-to-r after:from-indigo-400 after:to-purple-500 
+    after:transition-all after:duration-300 hover:after:w-full
+    before:absolute before:inset-0 before:-z-10 before:rounded-md before:bg-indigo-50 before:opacity-0 before:transition-all before:duration-300 
+    hover:before:opacity-100 hover:before:scale-105 px-1 py-0.5 -mx-1 -my-0.5`;
 
   if (href.startsWith("/")) {
     return (
@@ -189,24 +208,45 @@ function Code({ children, ...props }) {
   };
 
   if (!isMultiLine) {
-    return <code dangerouslySetInnerHTML={{ __html: codeHTML }} {...props} />;
+    return (
+      <code
+        className="rounded-lg border border-gray-300 bg-gradient-to-r from-gray-100 to-gray-200 px-2 py-1 font-mono text-sm text-gray-800 shadow-sm transition-all duration-200 hover:bg-gradient-to-r hover:from-indigo-50 hover:to-purple-50 hover:shadow-md"
+        dangerouslySetInnerHTML={{ __html: codeHTML }}
+        {...props}
+      />
+    );
   }
 
   return (
-    <div className="w-full max-w-[805px]">
-      <div className="code-frame relative font-mono">
+    <div className="group my-8 w-full max-w-[805px]">
+      <div className="code-frame hover:shadow-3xl relative overflow-hidden rounded-xl border border-gray-200 bg-gradient-to-br from-gray-50 to-gray-100 font-mono shadow-2xl transition-all duration-300 hover:scale-[1.02]">
         <div className="code-frame-content">
-          <div className="frame-controls">
-            <div className="frame-control" />
-            <div className="frame-control" />
-            <div className="frame-control" />
+          <div className="frame-controls flex items-center justify-between bg-gradient-to-r from-gray-800 to-gray-900 px-4 py-3">
+            <div className="flex items-center gap-2">
+              <div className="frame-control h-3 w-3 rounded-full bg-red-500 shadow-sm" />
+              <div className="frame-control h-3 w-3 rounded-full bg-yellow-500 shadow-sm" />
+              <div className="frame-control h-3 w-3 rounded-full bg-green-500 shadow-sm" />
+            </div>
+            {filename && (
+              <span className="code-frame-filename text-sm font-medium text-gray-300">
+                {filename}
+              </span>
+            )}
+            {language && (
+              <div className="rounded-md bg-gray-700 px-2 py-1 text-xs text-gray-400">
+                {language}
+              </div>
+            )}
           </div>
-          {filename && <span className="code-frame-filename">{filename}</span>}
         </div>
-        <button onClick={copyToClipboard}>
+        <button
+          onClick={copyToClipboard}
+          className="absolute right-3 top-3 z-10 rounded-lg bg-gray-700/80 p-2 text-gray-300 opacity-0 backdrop-blur-sm transition-all duration-300 hover:bg-gray-600 hover:text-white group-hover:opacity-100"
+          title="复制代码"
+        >
           {isCopied ? (
             <svg
-              className="h-5 w-5 text-indigo-400"
+              className="h-4 w-4"
               viewBox="0 0 24 24"
               fill="none"
               xmlns="http://www.w3.org/2000/svg"
@@ -217,11 +257,7 @@ function Code({ children, ...props }) {
               />
             </svg>
           ) : (
-            <svg
-              className="h-5 w-5 text-slate-400 hover:text-[#64758B]"
-              fill="none"
-              viewBox="0 0 24 24"
-            >
+            <svg className="h-4 w-4" fill="none" viewBox="0 0 24 24">
               <path
                 stroke="currentColor"
                 strokeLinecap="round"
@@ -244,12 +280,14 @@ function Code({ children, ...props }) {
           )}
         </button>
       </div>
-      <div className="code-container">
-        <code
-          className="mb-12"
-          dangerouslySetInnerHTML={{ __html: codeHTML }}
-          {...props}
-        />
+      <div className="code-container relative rounded-b-xl bg-gradient-to-br from-slate-900 to-slate-800">
+        <pre className="overflow-x-auto p-6 text-sm leading-relaxed text-gray-100">
+          <code
+            className="mb-12"
+            dangerouslySetInnerHTML={{ __html: codeHTML }}
+            {...props}
+          />
+        </pre>
       </div>
     </div>
   );
@@ -270,21 +308,30 @@ function createHeading(level) {
   // eslint-disable-next-line react/display-name
   return ({ children }) => {
     let slug = slugify(children);
-    let textSize = "text-4xl";
-    if (level === 2) textSize = "text-2xl md:text-3xl";
-    if (level === 3) textSize = "text-xl md:text-2xl";
-    if (level === 4) textSize = "text-lg md:text-xl";
     return React.createElement(
       `h${level}`,
       {
         id: slug,
-        className: `${textSize} text-text-primary font-medium leading-8 mb-6 ${level === 2 ? "mt-8" : "mt-3"} text-balance`,
+        className: `font-semibold tracking-tight text-text-primary transition-all duration-300 hover:text-indigo-600 group relative ${
+          level === 1
+            ? "mb-8 mt-8 scroll-m-20 text-4xl md:text-5xl bg-gradient-to-r from-gray-900 via-indigo-800 to-gray-900 bg-clip-text text-transparent"
+            : level === 2
+              ? "mb-6 mt-10 scroll-m-20 text-3xl md:text-4xl border-l-4 border-indigo-500 pl-4 bg-gradient-to-r from-indigo-50 to-purple-50 py-3 rounded-r-lg shadow-sm"
+              : level === 3
+                ? "mb-5 mt-8 scroll-m-20 text-2xl md:text-3xl text-gray-800 border-b-2 border-gradient-to-r from-indigo-200 to-purple-200 pb-2"
+                : level === 4
+                  ? "mb-4 mt-6 scroll-m-20 text-xl md:text-2xl text-gray-700 relative before:absolute before:left-0 before:top-0 before:h-full before:w-1 before:bg-gradient-to-b before:from-indigo-400 before:to-purple-400 before:rounded-full pl-4"
+                  : level === 5
+                    ? "mb-3 mt-5 scroll-m-20 text-lg md:text-xl text-gray-600"
+                    : "mb-2 mt-4 scroll-m-20 text-base md:text-lg text-gray-500"
+        }`,
       },
       [
         React.createElement("a", {
           href: `#${slug}`,
           key: `link-${slug}`,
-          className: "anchor ",
+          className:
+            "anchor opacity-0 group-hover:opacity-100 transition-opacity duration-300 absolute -left-6 top-1/2 -translate-y-1/2 text-indigo-400 hover:text-indigo-600",
         }),
       ],
       children,
@@ -306,23 +353,11 @@ function paragraph({ children }) {
     return <>{children}</>;
   }
 
-  // Otherwise, wrap in a p tag as before
+  // Otherwise, wrap in a p tag with enhanced styling
   return (
-    <p className="mb-6 text-base leading-8 text-text-secondary">{children}</p>
-  );
-}
-
-function OrderedList({ children }) {
-  return <ol className="mb-8 list-decimal pl-8">{children}</ol>;
-}
-
-function UnorderedList({ children }) {
-  return <ul className="mb-8 list-disc pl-8">{children}</ul>;
-}
-
-function ListItem({ children }) {
-  return (
-    <li className="mb-4 text-base leading-8 text-text-secondary">{children}</li>
+    <p className="mb-6 text-base leading-8 text-text-secondary transition-all duration-300 selection:bg-indigo-100 selection:text-indigo-900 hover:text-gray-700">
+      {children}
+    </p>
   );
 }
 
@@ -447,6 +482,48 @@ function ThoughtQuote({ children }) {
   return <FullWidthCallout type="thought">{children}</FullWidthCallout>;
 }
 
+// Enhanced List Components
+function UnorderedList({ children }) {
+  return <ul className="my-6 ml-6 list-none space-y-2">{children}</ul>;
+}
+
+function OrderedList({ children }) {
+  return (
+    <ol className="counter-reset-[list-counter] my-6 ml-6 list-none space-y-2">
+      {children}
+    </ol>
+  );
+}
+
+function ListItem({ children }) {
+  return (
+    <li className="relative pl-8 leading-7 text-text-secondary transition-all duration-200 hover:text-gray-700">
+      <span className="absolute left-0 top-1 flex h-5 w-5 items-center justify-center rounded-full bg-gradient-to-r from-indigo-500 to-purple-600 text-xs font-bold text-white shadow-md">
+        •
+      </span>
+      {children}
+    </li>
+  );
+}
+
+// Enhanced Blockquote
+function Blockquote({ children }) {
+  return (
+    <blockquote className="border-gradient-to-b my-8 rounded-r-lg border-l-4 bg-gradient-to-r from-indigo-50 from-indigo-500 to-purple-50 to-purple-600 py-4 pl-6 pr-4 italic text-gray-700 shadow-lg transition-all duration-300 hover:bg-gradient-to-r hover:from-indigo-100 hover:to-purple-100 hover:shadow-xl">
+      <div className="relative">
+        <svg
+          className="absolute -left-2 -top-2 h-8 w-8 text-indigo-400 opacity-50"
+          fill="currentColor"
+          viewBox="0 0 32 32"
+        >
+          <path d="M9.352 4C4.456 7.456 1 13.12 1 19.36c0 5.088 3.072 8.064 6.624 8.064 3.36 0 5.856-2.688 5.856-5.856 0-3.168-2.208-5.472-5.088-5.472-.576 0-1.344.096-1.536.192.48-3.264 3.552-7.104 6.624-9.024L9.352 4zm16.512 0c-4.8 3.456-8.256 9.12-8.256 15.36 0 5.088 3.072 8.064 6.624 8.064 3.264 0 5.856-2.688 5.856-5.856 0-3.168-2.304-5.472-5.184-5.472-.576 0-1.248.096-1.44.192.48-3.264 3.456-7.104 6.528-9.024L25.864 4z" />
+        </svg>
+        {children}
+      </div>
+    </blockquote>
+  );
+}
+
 const sharedComponents = {
   h1: createHeading(1),
   h2: createHeading(2),
@@ -470,6 +547,7 @@ const sharedComponents = {
   ol: OrderedList,
   ul: UnorderedList,
   li: ListItem,
+  blockquote: Blockquote,
 };
 
 const useMDXComponent = (code: string) => {

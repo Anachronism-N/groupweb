@@ -21,49 +21,49 @@ interface Project {
 
 const teamMembers: TeamMember[] = [
   {
-    name: "Braydon Coyer",
-    role: "Founder & Lead Developer",
-    image: "/braydon_headshot_5.jpg",
-    hoverImage: "/braydon_headshot_4.jpg",
-    bio: "Creative frontend engineer with expertise in Next.js, Tailwind CSS and modern web development practices.",
+    name: "Li Yixuan",
+    role: "UI Designer",
+    image: "/profile/lyx_profile.jpg",
+    hoverImage: "/profile/lyx_hover.png",
+    bio: "Provides aesthetically pleasing materials for the website, including background images, logos, cartoon character designs.",
   },
   {
-    name: "Team Member 2",
-    role: "Designer",
-    image: "/connections/jhey.jpeg",
-    hoverImage: "/connections/brad.jpeg",
-    bio: "Passionate designer focused on creating beautiful and user-friendly interfaces.",
+    name: "Liu Lixin",
+    role: "Product Manager",
+    image: "/profile/llx_profile.jpg",
+    hoverImage: "/profile/llx_hover.png",
+    bio: "Coordinated the entire project, assigned tasks to everyone, and also participated in the front-end design and code writing.",
   },
   {
-    name: "Team Member 3",
-    role: "Content Creator",
-    image: "/connections/scott.jpeg",
-    hoverImage: "/connections/Brian.jpeg",
-    bio: "Experienced writer and content strategist with a knack for storytelling.",
-  },
-  {
-    name: "Team Member 4",
+    name: "Li Siyi",
     role: "Developer",
-    image: "/connections/james.jpeg",
-    hoverImage: "/connections/jim.jpeg",
-    bio: "Skilled backend developer with a focus on building scalable and efficient systems.",
+    image: "/profile/lsy_profile.jpg",
+    hoverImage: "/profile/lsy_hover.png",
+    bio: "Involved in the document writing and some of the development work, including website construction and markdown rendering.",
+  },
+  {
+    name: "Nie Zichao",
+    role: "Developer",
+    image: "/profile/nzc_profile.jpg",
+    hoverImage: "/profile/nzc_hover.png",
+    bio: "Involved in the document writing as well as the partial development, including interaction optimization, function integration and migration.",
   },
 ];
 
 const projects: Project[] = [
   {
-    title: "Commit Your Code Conference Website",
+    title: "Lava",
     description:
-      "A web development conference for charity, the Commit Your Code Conference website was designed and built by me using Figma, Next.js and Tailwind CSS.",
-    image: "/projects/commit_your_code_project.jpeg",
-    url: "https://www.commityourcode.com/",
+      "AN action-packed educational game where learning Chinese characters becomes your key to surviving rising lava.",
+    image: "/projects/project_lava.jpg",
+    url: "https://a03zk7ecp370-deploy.space.z.ai/",
   },
   {
-    title: "Pomegradient",
+    title: "Barbie",
     description:
-      "Pomegradient is a web-based gradient solution that allows you to find, save and craft gradients with a creative community!",
-    image: "/projects/pomegradient_project.jpeg",
-    url: "https://www.pomegradient.com/",
+      "An AI-Native app that integrates generative AI (Images and text) to offer girls diverse career advice through different Barbie personas.",
+    image: "/projects/project_barbie.jpg",
+    url: "https://barbie.zeabur.app",
   },
 ];
 

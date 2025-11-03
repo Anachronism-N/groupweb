@@ -102,47 +102,75 @@ const Tutorial = () => {
   const mdComponents = {
     h1: (props: any) => (
       <h1
-        className="mb-6 mt-8 border-b-2 border-blue-200 pb-3 text-3xl font-bold leading-tight text-gray-900 md:text-4xl"
+        className="relative mb-8 mt-10 bg-gradient-to-r from-indigo-600 via-purple-600 to-pink-600 bg-clip-text text-4xl font-bold leading-tight tracking-tight text-transparent md:text-5xl"
         {...props}
-      />
+      >
+        <div className="absolute -bottom-3 left-0 h-1 w-20 rounded-full bg-gradient-to-r from-indigo-500 to-purple-500 shadow-lg"></div>
+        {props.children}
+      </h1>
     ),
     h2: (props: any) => (
       <h2
-        className="mb-5 mt-8 border-l-4 border-blue-400 pl-4 text-2xl font-semibold leading-tight text-gray-800 md:text-3xl"
+        className="group relative mb-6 mt-8 text-2xl font-semibold leading-tight text-gray-800 md:text-3xl"
         {...props}
-      />
+      >
+        <div className="absolute -left-6 top-0 h-full w-1 rounded-full bg-gradient-to-b from-blue-400 to-indigo-500 shadow-md transition-all duration-300 group-hover:w-2"></div>
+        <div className="relative pl-4">
+          {props.children}
+          <div className="absolute -bottom-1 left-0 h-0.5 w-0 bg-gradient-to-r from-blue-400 to-indigo-500 transition-all duration-500 group-hover:w-full"></div>
+        </div>
+      </h2>
     ),
     h3: (props: any) => (
       <h3
-        className="mb-4 mt-6 text-xl font-semibold leading-tight text-gray-700 md:text-2xl"
+        className="group relative mb-5 mt-7 cursor-pointer text-xl font-semibold leading-tight text-gray-700 md:text-2xl"
         {...props}
-      />
+      >
+        <span className="relative z-10">{props.children}</span>
+        <div className="absolute inset-0 -mx-2 -my-1 rounded-lg bg-gradient-to-r from-indigo-50 to-purple-50 px-2 py-1 opacity-0 transition-all duration-300 group-hover:opacity-100"></div>
+      </h3>
     ),
     h4: (props: any) => (
       <h4
-        className="mb-3 mt-5 text-lg font-medium leading-tight text-gray-700 md:text-xl"
+        className="relative mb-4 mt-6 text-lg font-medium leading-tight text-gray-700 md:text-xl"
+        {...props}
+      >
+        <span className="relative">
+          {props.children}
+          <div className="absolute -bottom-1 left-0 h-0.5 w-8 rounded-full bg-gradient-to-r from-gray-400 to-gray-600"></div>
+        </span>
+      </h4>
+    ),
+    p: (props: any) => (
+      <p
+        className="mb-6 text-base leading-8 text-gray-600 transition-all duration-300 selection:bg-indigo-100 selection:text-indigo-900 hover:text-gray-700"
         {...props}
       />
     ),
-    p: (props: any) => (
-      <p className="mb-4 text-base leading-relaxed text-gray-600" {...props} />
+    ul: (props: any) => <ul className="mb-8 ml-2 space-y-3" {...props} />,
+    ol: (props: any) => (
+      <ol
+        className="counter-reset-[list-counter] mb-8 ml-2 space-y-3"
+        {...props}
+      />
     ),
-    ul: (props: any) => <ul className="mb-6 space-y-2" {...props} />,
-    ol: (props: any) => <ol className="mb-6 space-y-2" {...props} />,
     li: ({ children, ...props }: any) => (
       <li
-        className="border-l-3 ml-6 rounded-r-lg border-blue-300 bg-gradient-to-r from-blue-50 to-transparent py-2 pl-4 text-gray-700 transition-colors duration-200 hover:from-blue-100"
+        className="group relative ml-6 rounded-lg bg-gradient-to-r from-indigo-50 via-purple-50 to-pink-50 py-3 pl-6 pr-4 text-gray-700 transition-all duration-300 hover:scale-[1.02] hover:from-indigo-100 hover:via-purple-100 hover:to-pink-100 hover:shadow-md"
         {...props}
       >
         <div className="flex items-start">
-          <span className="mr-3 mt-2 inline-block h-2 w-2 flex-shrink-0 rounded-full bg-blue-400"></span>
+          <span className="mr-4 mt-2 inline-flex h-3 w-3 flex-shrink-0 items-center justify-center rounded-full bg-gradient-to-r from-indigo-500 to-purple-600 shadow-md transition-transform duration-300 group-hover:scale-110">
+            <span className="h-1.5 w-1.5 rounded-full bg-white"></span>
+          </span>
           <div className="flex-1">{children}</div>
         </div>
+        <div className="absolute left-0 top-0 h-full w-1 rounded-r-full bg-gradient-to-b from-indigo-400 to-purple-500 opacity-60 transition-opacity duration-300 group-hover:opacity-100"></div>
       </li>
     ),
     a: (props: any) => (
       <a
-        className="border-b border-blue-300 font-medium text-blue-600 transition-all duration-200 hover:border-blue-500 hover:text-blue-800"
+        className="relative -mx-1 -my-0.5 inline-block px-1 py-0.5 font-medium text-indigo-600 transition-all duration-300 before:absolute before:inset-0 before:-z-10 before:rounded-md before:bg-indigo-50 before:opacity-0 before:transition-all before:duration-300 after:absolute after:bottom-0 after:left-0 after:h-0.5 after:w-0 after:bg-gradient-to-r after:from-indigo-400 after:to-purple-500 after:transition-all after:duration-300 hover:text-indigo-800 hover:before:scale-105 hover:before:opacity-100 hover:after:w-full"
         target={props.href?.startsWith("http") ? "_blank" : undefined}
         rel={props.href?.startsWith("http") ? "noopener noreferrer" : undefined}
         {...props}
@@ -150,22 +178,31 @@ const Tutorial = () => {
     ),
     blockquote: (props: any) => (
       <blockquote
-        className="my-6 rounded-lg border-l-4 border-indigo-400 bg-gradient-to-r from-indigo-50 to-purple-50 p-6 text-gray-700 shadow-sm"
+        className="border-gradient-to-b group relative my-8 rounded-xl border-l-4 bg-gradient-to-r from-indigo-50 from-indigo-500 via-purple-50 to-pink-50 to-purple-600 p-8 text-gray-700 shadow-xl transition-all duration-300 hover:bg-gradient-to-r hover:from-indigo-100 hover:via-purple-100 hover:to-pink-100 hover:shadow-2xl"
         {...props}
       >
         <div className="flex items-start">
+          <div className="mr-4 mt-1 flex h-10 w-10 flex-shrink-0 items-center justify-center rounded-full bg-gradient-to-r from-indigo-500 to-purple-600 shadow-lg transition-transform duration-300 group-hover:scale-110">
+            <svg
+              className="h-5 w-5 text-white"
+              fill="currentColor"
+              viewBox="0 0 32 32"
+            >
+              <path d="M9.352 4C4.456 7.456 1 13.12 1 19.36c0 5.088 3.072 8.064 6.624 8.064 3.36 0 5.856-2.688 5.856-5.856 0-3.168-2.208-5.472-5.088-5.472-.576 0-1.344.096-1.536.192.48-3.264 3.552-7.104 6.624-9.024L9.352 4zm16.512 0c-4.8 3.456-8.256 9.12-8.256 15.36 0 5.088 3.072 8.064 6.624 8.064 3.264 0 5.856-2.688 5.856-5.856 0-3.168-2.304-5.472-5.184-5.472-.576 0-1.248.096-1.44.192.48-3.264 3.456-7.104 6.528-9.024L25.864 4z" />
+            </svg>
+          </div>
+          <div className="flex-1 text-lg italic leading-relaxed">
+            {props.children}
+          </div>
+        </div>
+        <div className="absolute right-4 top-4 opacity-20 transition-opacity duration-300 group-hover:opacity-30">
           <svg
-            className="mr-3 mt-1 h-6 w-6 flex-shrink-0 text-indigo-400"
+            className="h-16 w-16 text-indigo-400"
             fill="currentColor"
-            viewBox="0 0 20 20"
+            viewBox="0 0 32 32"
           >
-            <path
-              fillRule="evenodd"
-              d="M18 10a8 8 0 11-16 0 8 8 0 0116 0zm-7-4a1 1 0 11-2 0 1 1 0 012 0zM9 9a1 1 0 000 2v3a1 1 0 001 1h1a1 1 0 100-2v-3a1 1 0 00-1-1H9z"
-              clipRule="evenodd"
-            />
+            <path d="M9.352 4C4.456 7.456 1 13.12 1 19.36c0 5.088 3.072 8.064 6.624 8.064 3.36 0 5.856-2.688 5.856-5.856 0-3.168-2.208-5.472-5.088-5.472-.576 0-1.344.096-1.536.192.48-3.264 3.552-7.104 6.624-9.024L9.352 4zm16.512 0c-4.8 3.456-8.256 9.12-8.256 15.36 0 5.088 3.072 8.064 6.624 8.064 3.264 0 5.856-2.688 5.856-5.856 0-3.168-2.304-5.472-5.184-5.472-.576 0-1.248.096-1.44.192.48-3.264 3.456-7.104 6.528-9.024L25.864 4z" />
           </svg>
-          <div className="flex-1">{props.children}</div>
         </div>
       </blockquote>
     ),
@@ -174,7 +211,7 @@ const Tutorial = () => {
       if (inline ?? true) {
         return (
           <code
-            className="rounded-md border border-gray-200 bg-gray-100 px-2 py-1 font-mono text-sm text-gray-800"
+            className="rounded-lg border border-gray-300 bg-gradient-to-r from-gray-100 to-gray-200 px-2 py-1 font-mono text-sm text-gray-800 shadow-sm transition-all duration-200 hover:bg-gradient-to-r hover:from-indigo-50 hover:to-purple-50 hover:shadow-md"
             {...props}
           >
             {content}
@@ -202,18 +239,27 @@ const Tutorial = () => {
       const html = highlight(String(raw));
 
       return (
-        <div className="my-6 overflow-hidden rounded-lg border border-gray-200 shadow-lg">
-          <div className="flex items-center justify-between bg-gray-800 px-4 py-2">
-            <span className="font-mono text-sm text-gray-300">{language}</span>
+        <div className="hover:shadow-3xl group my-8 overflow-hidden rounded-xl border border-gray-200 bg-gradient-to-br from-gray-50 to-gray-100 shadow-2xl transition-all duration-300 hover:scale-[1.02]">
+          <div className="flex items-center justify-between bg-gradient-to-r from-gray-800 to-gray-900 px-6 py-4">
+            <div className="flex items-center gap-3">
+              <div className="flex gap-2">
+                <div className="h-3 w-3 rounded-full bg-red-500 shadow-sm"></div>
+                <div className="h-3 w-3 rounded-full bg-yellow-500 shadow-sm"></div>
+                <div className="h-3 w-3 rounded-full bg-green-500 shadow-sm"></div>
+              </div>
+              <span className="font-mono text-sm font-medium text-gray-300">
+                {language}
+              </span>
+            </div>
             <button
               onClick={() => navigator.clipboard?.writeText(raw)}
-              className="text-sm text-gray-400 transition-colors duration-200 hover:text-white"
+              className="rounded-lg bg-gray-700/80 px-3 py-1.5 text-sm text-gray-300 opacity-0 backdrop-blur-sm transition-all duration-300 hover:bg-gray-600 hover:text-white group-hover:opacity-100"
             >
-              复制
+              复制代码
             </button>
           </div>
           <pre
-            className="overflow-x-auto bg-[#0f172a] p-4 text-white"
+            className="overflow-x-auto bg-gradient-to-br from-slate-900 to-slate-800 p-6 text-sm leading-relaxed text-white"
             {...props}
           >
             <code dangerouslySetInnerHTML={{ __html: html }} />
@@ -222,35 +268,45 @@ const Tutorial = () => {
       );
     },
     table: (props: any) => (
-      <div className="my-6 overflow-x-auto rounded-lg border border-gray-200 shadow-sm">
+      <div className="my-8 overflow-hidden rounded-xl border border-gray-200 bg-white shadow-xl transition-all duration-300 hover:shadow-2xl">
         <table className="min-w-full border-collapse bg-white">
           {props.children}
         </table>
       </div>
     ),
-    thead: (props: any) => <thead className="bg-gray-50" {...props} />,
+    thead: (props: any) => (
+      <thead
+        className="bg-gradient-to-r from-indigo-50 to-purple-50"
+        {...props}
+      />
+    ),
     th: (props: any) => (
       <th
-        className="border-b border-gray-200 px-4 py-3 text-left font-semibold text-gray-900"
+        className="border-b-2 border-indigo-200 px-6 py-4 text-left font-semibold text-gray-900 first:rounded-tl-xl last:rounded-tr-xl"
         {...props}
       />
     ),
     td: (props: any) => (
       <td
-        className="border-b border-gray-100 px-4 py-3 text-gray-700"
+        className="border-b border-gray-100 px-6 py-4 text-gray-700 transition-all duration-200 hover:bg-gradient-to-r hover:from-gray-50 hover:to-indigo-50"
         {...props}
       />
     ),
     hr: (props: any) => (
       <hr
-        className="my-8 h-px border-0 bg-gradient-to-r from-transparent via-gray-300 to-transparent"
+        className="my-12 h-px border-0 bg-gradient-to-r from-transparent via-indigo-300 to-transparent opacity-60"
         {...props}
       />
     ),
     strong: (props: any) => (
-      <strong className="font-semibold text-gray-900" {...props} />
+      <strong
+        className="bg-gradient-to-r from-indigo-600 to-purple-600 bg-clip-text font-semibold text-gray-900 text-transparent"
+        {...props}
+      />
     ),
-    em: (props: any) => <em className="italic text-gray-700" {...props} />,
+    em: (props: any) => (
+      <em className="font-medium italic text-gray-700" {...props} />
+    ),
   } as any;
 
   return (

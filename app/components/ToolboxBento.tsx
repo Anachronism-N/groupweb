@@ -15,20 +15,22 @@ export function ToolboxBento({
       const content = (
         <>
           {/* 工具图标 */}
-          <div className={`relative rounded-[16px] border border-border-primary p-2 transition-all duration-300 ease-out hover:-translate-y-1 hover:scale-105 hover:border-gray-400 sm:rounded-[18px] sm:p-3 md:rounded-[20px] md:p-4 ${
-            isHorizontalScroll 
-              ? "h-12 w-12 sm:h-14 sm:w-14 md:h-16 md:w-16" 
-              : "h-14 w-14 sm:h-16 sm:w-16 md:h-18 md:w-18 lg:h-20 lg:w-20"
-          }`}>
+          <div
+            className={`relative rounded-[16px] border border-border-primary transition-all duration-300 ease-out hover:-translate-y-1 hover:scale-105 hover:border-gray-400 ${
+              isHorizontalScroll
+                ? "h-16 w-16 p-3"
+                : "h-18 w-18 md:h-22 md:w-22 p-4 sm:h-20 sm:w-20 lg:h-24 lg:w-24"
+            }`}
+          >
             <div
               className="grid h-full place-items-center rounded-xl border-2 border-[#A5AEB81F]/10 bg-[#EDEEF0] transition-all duration-200 hover:bg-white"
               style={{ boxShadow: "0px 2px 1.5px 0px #A5AEB852 inset" }}
             >
               <Image
                 className={`transition-all duration-200 hover:scale-105 ${
-                  isHorizontalScroll 
-                    ? "h-5 w-5 sm:h-6 sm:w-6 md:h-7 md:w-7" 
-                    : "h-6 w-6 sm:h-7 sm:w-7 md:h-8 md:w-8"
+                  isHorizontalScroll
+                    ? "h-7 w-7"
+                    : "h-8 w-8 sm:h-9 sm:w-9 md:h-10 md:w-10"
                 }`}
                 alt={item.title}
                 src={item.imgSrc}
@@ -39,11 +41,13 @@ export function ToolboxBento({
           </div>
 
           {/* 工具名称 */}
-          <span className={`truncate font-medium leading-tight text-gray-600 ${
-            isHorizontalScroll 
-              ? "max-w-[45px] text-[9px] sm:max-w-[50px] sm:text-[10px] md:max-w-[60px] md:text-xs" 
-              : "max-w-[50px] text-[10px] sm:max-w-[60px] sm:text-xs md:max-w-[70px]"
-          }`}>
+          <span
+            className={`truncate text-center font-medium leading-tight text-gray-600 ${
+              isHorizontalScroll
+                ? "max-w-[64px] text-xs"
+                : "max-w-[72px] text-sm sm:max-w-[80px] md:max-w-[88px]"
+            }`}
+          >
             {item.title}
           </span>
         </>
@@ -86,9 +90,9 @@ export function ToolboxBento({
         </p>
       </div>
       {isHorizontalScroll ? (
-        <div className="mx-auto max-w-4xl overflow-x-auto px-2 sm:px-4 scrollbar-hide pt-2">
+        <div className="scrollbar-hide mx-auto max-w-4xl overflow-x-auto px-2 pt-2 sm:px-4">
           <div
-            className="flex gap-2 pb-2 sm:gap-3 md:gap-4 lg:gap-5"
+            className="flex gap-4 pb-2 sm:gap-5 md:gap-6"
             style={{ minWidth: "max-content" }}
           >
             {items}
