@@ -64,7 +64,13 @@ function CustomLink(props) {
 
 function RoundedImage(props) {
   return (
-    <Image src={props.src} alt={props.alt} className="drama-shadow rounded-xl" width={800} height={600} />
+    <Image
+      src={props.src}
+      alt={props.alt}
+      className="drama-shadow rounded-xl"
+      width={800}
+      height={600}
+    />
   );
 }
 

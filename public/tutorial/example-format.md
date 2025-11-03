@@ -20,7 +20,7 @@ React 是一个用于构建用户界面的 JavaScript 库，主要特点包括�
 ### 基础函数组件
 
 ```tsx
-import React from 'react';
+import React from "react";
 
 interface Props {
   name: string;
@@ -42,7 +42,7 @@ export default UserCard;
 ### useState Hook
 
 ```tsx
-import React, { useState } from 'react';
+import React, { useState } from "react";
 
 const Counter: React.FC = () => {
   const [count, setCount] = useState(0);
@@ -50,9 +50,7 @@ const Counter: React.FC = () => {
   return (
     <div>
       <p>计数: {count}</p>
-      <button onClick={() => setCount(count + 1)}>
-        增加
-      </button>
+      <button onClick={() => setCount(count + 1)}>增加</button>
     </div>
   );
 };
@@ -72,6 +70,7 @@ const Counter: React.FC = () => {
 ### 实践项目
 
 1. **个人博客系统**
+
    - 使用Next.js构建
    - 集成Markdown渲染
    - 响应式设计

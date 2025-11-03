@@ -85,9 +85,9 @@ function TeamMemberAvatar({ member }) {
   };
 
   return (
-    <div className="relative">
+    <div className="relative flex items-center justify-center">
       <motion.svg
-        className="mx-auto"
+        className="mx-auto block"
         width="400"
         height="400"
         viewBox="0 0 400 400"
@@ -126,7 +126,7 @@ function TeamMemberAvatar({ member }) {
         <AnimatePresence mode="wait">
           <motion.img
             key={imageSrc}
-            className="h-[400px] w-[400px] cursor-pointer rounded-full object-cover transition-opacity hover:opacity-90"
+            className="mx-auto block h-[400px] w-[400px] cursor-pointer rounded-full object-cover transition-opacity hover:opacity-90"
             src={imageSrc}
             alt={member.name}
             onMouseEnter={handleMouseEnter}
@@ -158,21 +158,23 @@ export default function TeamPage() {
       {/* 团队成员展示 - 保留新增内容在前面 */}
       <GridWrapper>
         <h2 className="mb-8 text-center text-2xl font-medium">Our Team</h2>
-        <div className="grid grid-cols-1 gap-12 md:grid-cols-2">
+        <div className="grid grid-cols-1 justify-items-center gap-12 md:grid-cols-2">
           {teamMembers.map((member) => (
             <div
               key={member.name}
-              className="flex h-full flex-col items-center text-center"
+              className="flex h-full max-w-md flex-col items-center justify-center text-center"
             >
-              <div className="relative mb-6 h-96 w-96 overflow-hidden rounded-full">
+              <div className="relative mx-auto mb-6 flex h-96 w-96 items-center justify-center overflow-hidden rounded-full">
                 <TeamMemberAvatar member={member} />
               </div>
-              <div className="mx-auto flex max-w-xs flex-grow flex-col space-y-2">
-                <h3 className="text-xl font-medium leading-6 tracking-tight text-slate-900">
+              <div className="mx-auto flex max-w-xs flex-grow flex-col items-center justify-center space-y-2 text-center">
+                <h3 className="text-center text-xl font-medium leading-6 tracking-tight text-slate-900">
                   {member.name}
                 </h3>
-                <p className="text-sm text-indigo-600">{member.role}</p>
-                <p className="text-base leading-6 text-text-secondary">
+                <p className="text-center text-sm text-indigo-600">
+                  {member.role}
+                </p>
+                <p className="text-center text-base leading-6 text-text-secondary">
                   {member.bio}
                 </p>
               </div>
@@ -187,7 +189,7 @@ export default function TeamPage() {
         <div className="space-y-12">
           {projects.map((project) => (
             <div key={project.title} className="space-y-12">
-              <GridWrapper className="px-10">
+              <GridWrapper className="flex justify-center px-10">
                 <Image
                   src={project.image}
                   alt={project.title}
@@ -196,8 +198,8 @@ export default function TeamPage() {
                   height={600}
                 />
               </GridWrapper>
-              <GridWrapper className="px-10">
-                <div className="max-w-2xl text-balance">
+              <GridWrapper className="flex justify-center px-10">
+                <div className="max-w-2xl text-balance text-center">
                   <h3 className="mb-3 text-2xl font-medium leading-6 tracking-tight text-slate-900 md:leading-none">
                     {project.title}
                   </h3>

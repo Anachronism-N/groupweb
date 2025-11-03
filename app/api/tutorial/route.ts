@@ -64,8 +64,10 @@ export async function GET() {
       const raw = fs.readFileSync(full, "utf-8");
       const { data, content } = matter(raw);
 
-      const chapterNum = (data.chapter as number) ?? parseFilenameChapter(file) ?? 0;
-      const chapterLabel = (data.chapterLabel as string) ?? toChapterLabel(chapterNum);
+      const chapterNum =
+        (data.chapter as number) ?? parseFilenameChapter(file) ?? 0;
+      const chapterLabel =
+        (data.chapterLabel as string) ?? toChapterLabel(chapterNum);
 
       const reflections = extractReflections(content);
 
@@ -79,13 +81,12 @@ export async function GET() {
       };
     });
 
-    items.sort((a, b) => chapterNumFromLabel(a.chapter) - chapterNumFromLabel(b.chapter));
+    items.sort(
+      (a, b) => chapterNumFromLabel(a.chapter) - chapterNumFromLabel(b.chapter),
+    );
 
     return NextResponse.json(items);
   } catch (e) {
-    return NextResponse.json(
-      { error: (e as Error).message },
-      { status: 500 },
-    );
+    return NextResponse.json({ error: (e as Error).message }, { status: 500 });
   }
 }

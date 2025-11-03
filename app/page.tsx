@@ -23,13 +23,20 @@ export default async function Home() {
   // 延迟设置，确保在封面动画(2秒)消失后再开始照片动画
   // 在原始延迟值的基础上扩大到2.5倍
   const PROFILE_DELAY = 2.1;
-  const HEADING_DELAY = PROFILE_DELAY + 0.5;  // 0.2 × 2.5
-  const PARAGRAPH_DELAY = HEADING_DELAY + 0.25;  // 0.1 × 2.5
-  const PHOTOS_DELAY = PARAGRAPH_DELAY + 0.25;  // 0.1 × 2.5
+  const HEADING_DELAY = PROFILE_DELAY + 0.5; // 0.2 × 2.5
+  const PARAGRAPH_DELAY = HEADING_DELAY + 0.25; // 0.1 × 2.5
+  const PHOTOS_DELAY = PARAGRAPH_DELAY + 0.25; // 0.1 × 2.5
 
   return (
-    <section className="relative min-h-screen" style={{ backgroundImage: 'url(/bg2.jpg)', backgroundSize: 'cover', backgroundPosition: 'center' }}>
-      <div className="relative z-10 bg-black/5 dark:bg-black/20 min-h-screen">
+    <section
+      className="relative min-h-screen"
+      style={{
+        backgroundImage: "url(/bg2.jpg)",
+        backgroundSize: "cover",
+        backgroundPosition: "center",
+      }}
+    >
+      <div className="relative z-10 min-h-screen bg-black/5 dark:bg-black/20">
         <AnimatedProfilePicture delay={PROFILE_DELAY} />
         <div className="mt-6 space-y-10 md:mt-0 md:space-y-16">
           <section>
@@ -53,8 +60,8 @@ export default async function Home() {
                   >
                     I&apos;m a front-end developer with a love for design and a
                     knack for tinkering. This site is intentionally
-                    over-engineered and serves as my playground for experimenting
-                    with new ideas and seeing what sticks!
+                    over-engineered and serves as my playground for
+                    experimenting with new ideas and seeing what sticks!
                   </AnimatedText>
                 </div>
               </GridWrapper>
@@ -97,7 +104,7 @@ export default async function Home() {
                 </div>
 
                 <div className="md:col-span-7 md:row-start-1 lg:col-span-5 lg:row-span-7">
-                  <ToolboxBento linkTo="/toolbox" />
+                  <ToolboxBento linkTo="/toolbox" isHorizontalScroll={true} />
                 </div>
 
                 <div className="md:col-span-12 lg:col-span-7 lg:row-span-5">
@@ -164,7 +171,8 @@ export default async function Home() {
               </GridWrapper>
               <GridWrapper>
                 <h2 className="text-center text-3xl font-medium leading-10 tracking-tighter text-text-primary md:mx-auto md:max-w-lg md:text-4xl">
-                  My site is a playful sandbox. Explore, experiment, && say hello
+                  My site is a playful sandbox. Explore, experiment, && say
+                  hello
                 </h2>
               </GridWrapper>
             </div>

@@ -57,7 +57,13 @@ function RoundedImage(props) {
       <span className="absolute inset-x-0 top-0">
         <HorizontalLine />
       </span>
-      <Image src={props.src} alt={props.alt} className="rounded-3xl" width={800} height={600} />
+      <Image
+        src={props.src}
+        alt={props.alt}
+        className="rounded-3xl"
+        width={800}
+        height={600}
+      />
       <span className="absolute inset-x-0 bottom-0">
         <HorizontalLine />
       </span>
