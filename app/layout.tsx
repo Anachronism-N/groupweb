@@ -64,12 +64,10 @@ export default function RootLayout({
       </body>
 
       <Script id="vemetric-loader" strategy="afterInteractive">
-        {
-          `
+        {`
           window.vmtrcq = window.vmtrcq || [];
           window.vmtrc = window.vmtrc || ((...args) => window.vmtrcq.push(args));
-        `
-        }
+        `}
       </Script>
 
       <Script

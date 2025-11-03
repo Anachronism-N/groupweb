@@ -2,11 +2,12 @@
 
 import { useState, useEffect, useRef } from "react";
 import { motion, AnimatePresence } from "framer-motion";
+import { ToolboxBento } from "../components/ToolboxBento";
 
 // 工作经历数据
 const chapters = [
   "Chapter 1",
-  "Chapter 2", 
+  "Chapter 2",
   "Chapter 3",
   "Chapter 4",
   "Chapter 5",
@@ -46,7 +47,7 @@ const courseReflections = [
       "Practiced working with APIs and handling asynchronous operations using fetch() and async/await. This knowledge opened up possibilities for creating dynamic applications that interact with external services.",
       "Explored JavaScript design patterns and learned how they can improve code organization and maintainability. Patterns like module pattern and observer pattern became valuable tools in my development toolkit.",
       "Implemented local storage and session storage to persist data in the browser, learning about client-side data management strategies. This capability enhanced user experience by maintaining application state.",
-      "Studied cross-browser compatibility issues and learned polyfills and feature detection techniques to ensure consistent behavior. This knowledge became crucial for supporting a wide range of users and devices."
+      "Studied cross-browser compatibility issues and learned polyfills and feature detection techniques to ensure consistent behavior. This knowledge became crucial for supporting a wide range of users and devices.",
     ],
   },
   {
@@ -180,93 +181,139 @@ const Tutorial = () => {
   const variants = isMobile ? mobileVariants : desktopVariants;
 
   return (
-    <section className="relative min-h-screen" style={{ backgroundImage: 'url(/bg2.jpg)', backgroundSize: 'cover', backgroundPosition: 'center' }}>
-      <div className="relative z-10 bg-black/5 dark:bg-black/20 min-h-screen">
+    <section
+      className="relative min-h-screen"
+      style={{
+        backgroundImage: "url(/bg2.jpg)",
+        backgroundSize: "cover",
+        backgroundPosition: "center",
+      }}
+    >
+      <div className="relative z-10 min-h-screen bg-black/5 dark:bg-black/20">
         <div className="container mx-auto px-4 py-8 lg:py-16">
-        <section className="flex flex-col mx-0 xl:mx-[8%] lg:mx-[5%] md:mx-[3%] pt-16 lg:pt-24 relative">
-          <header className="flex flex-row gap-4 justify-center items-center font-bold mb-8 lg:mb-16">
-            <div className="w-16 lg:w-24 border-b-2 border-blue-500"></div>
-            <span className="font-bold text-2xl sm:text-3xl lg:text-4xl text-gray-800 dark:text-gray-200 text-center px-4">
-              Course Learning Reflections
-            </span>
-            <div className="w-16 lg:w-24 border-b-2 border-blue-500"></div>
-          </header>
-          
-          <div className="flex flex-col gap-6 lg:flex-row w-full py-8 lg:py-12 lg:gap-8 items-start max-w-6xl mx-auto">
-            {/* 章节列表 */}
-            <div
-              ref={containerRef}
-              className="flex lg:gap-0 overflow-x-scroll lg:inline-block w-full lg:w-[28%] lg:border-l-2 lg:border-l-blue-300 bg-white/95 backdrop-blur-sm rounded-xl shadow-xl p-4 lg:p-6"
-            >
-              {chapters.map((chapter, id) => (
-                <div
-                  key={id}
-                  className={`lg:w-full cursor-pointer hover:text-blue-600 hover:bg-blue-50 transition-all duration-300 px-4 lg:px-6 py-3 lg:py-4 font-bold rounded-lg mb-2 lg:mb-3 text-black text-center lg:text-left whitespace-nowrap lg:whitespace-normal ${
-                    tab === id &&
-                    "lg:border-l-4 border-blue-500 bg-gradient-to-r from-blue-50 to-blue-100 text-blue-600 shadow-md"
-                  }`}
-                  onClick={() => handleTabClick(id)}
-                >
-                  {chapter}
-                </div>
-              ))}
-            </div>
+          <section className="relative mx-0 flex flex-col pt-16 md:mx-[3%] lg:mx-[5%] lg:pt-24 xl:mx-[8%]">
+            <header className="mb-8 flex flex-col items-center justify-center gap-4 font-bold lg:mb-16">
+              <div className="flex flex-row items-center justify-center gap-4">
+                <div className="w-16 border-b-2 border-blue-500 lg:w-24"></div>
+                <span className="px-4 text-center text-2xl font-bold text-black sm:text-3xl lg:text-4xl">
+                  Course Learning Reflections
+                </span>
+                <div className="w-16 border-b-2 border-blue-500 lg:w-24"></div>
+              </div>
+              <p className="text-gray-600 text-base lg:text-lg max-w-2xl mx-auto text-center font-normal">
+                Comprehensive insights and key learnings from my web development journey
+              </p>
+            </header>
 
-            {/* 课程心得详情 */}
-            <div className="w-full lg:w-[72%] h-[600px] lg:h-[700px] bg-white rounded-xl shadow-xl overflow-hidden">
-              <AnimatePresence mode="wait" custom={direction}>
-                <motion.div
-                  key={tab}
-                  initial="hidden"
-                  animate="visible"
-                  exit="exit"
-                  variants={variants}
-                  custom={direction}
-                  transition={{ duration: 0.6, ease: "easeInOut" }}
-                  className="h-full overflow-y-auto p-6 lg:p-8"
-                >
-                  <div className="mb-4 lg:mb-6 p-4 lg:p-6 bg-gradient-to-r from-blue-50 to-indigo-50 rounded-lg border-l-4 border-blue-500">
-                    <h3 className="text-xl lg:text-2xl font-bold text-black mb-2 lg:mb-3">
-                      {courseReflections[tab].title}
-                    </h3>
-                    <div className="flex flex-wrap gap-2 lg:gap-4 text-xs lg:text-sm">
-                      <span className="px-2 lg:px-3 py-1 bg-blue-100 text-blue-700 rounded-full font-medium">
-                        📚 {courseReflections[tab].topic}
-                      </span>
-                      <span className="px-2 lg:px-3 py-1 bg-green-100 text-green-700 rounded-full font-medium">
-                        📅 {courseReflections[tab].period}
-                      </span>
-                    </div>
+            <div className="mx-auto flex w-full max-w-6xl flex-col items-start gap-6 py-8 lg:flex-row lg:gap-8 lg:py-12">
+              {/* 章节列表 */}
+              <div
+                ref={containerRef}
+                className="flex w-full overflow-x-scroll rounded-xl bg-white/95 p-4 shadow-xl backdrop-blur-sm lg:inline-block lg:w-[28%] lg:gap-0 lg:border-l-2 lg:border-l-blue-300 lg:p-6"
+              >
+                {chapters.map((chapter, id) => (
+                  <div
+                    key={id}
+                    className={`mb-2 cursor-pointer whitespace-nowrap rounded-lg px-4 py-3 text-center font-bold text-black transition-all duration-300 hover:bg-blue-50 hover:text-blue-600 lg:mb-3 lg:w-full lg:whitespace-normal lg:px-6 lg:py-4 lg:text-left ${
+                      tab === id &&
+                      "border-blue-500 bg-gradient-to-r from-blue-50 to-blue-100 text-blue-600 shadow-md lg:border-l-4"
+                    }`}
+                    onClick={() => handleTabClick(id)}
+                  >
+                    {chapter}
                   </div>
-                  
-                  <div className="space-y-4 lg:space-y-6 pb-8">
-                    <h4 className="text-base lg:text-lg font-semibold text-gray-800 mb-3 lg:mb-4 flex items-center gap-2">
-                      <span className="w-3 h-3 bg-blue-500 rounded-full"></span>
-                      Key Learning Insights
-                    </h4>
-                    <div className="space-y-4">
-                      {courseReflections[tab].reflections.map((reflection, index) => (
-                        <div key={index} className="p-4 lg:p-5 border-l-4 border-blue-200 bg-gray-50 rounded-r-lg hover:bg-gray-100 transition-colors duration-200">
-                          <div className="flex items-start gap-3 lg:gap-4">
-                            <div className="flex-shrink-0 w-6 h-6 lg:w-7 lg:h-7 bg-gradient-to-r from-blue-500 to-indigo-500 rounded-full flex items-center justify-center mt-1">
-                              <span className="text-white text-xs lg:text-sm font-bold">{index + 1}</span>
+                ))}
+              </div>
+
+              {/* 课程心得详情 */}
+              <div className="h-[600px] w-full overflow-hidden rounded-xl bg-white shadow-xl lg:h-[700px] lg:w-[72%]">
+                <AnimatePresence mode="wait" custom={direction}>
+                  <motion.div
+                    key={tab}
+                    initial="hidden"
+                    animate="visible"
+                    exit="exit"
+                    variants={variants}
+                    custom={direction}
+                    transition={{ duration: 0.6, ease: "easeInOut" }}
+                    className="h-full overflow-y-auto p-6 lg:p-8"
+                  >
+                    <div className="mb-4 rounded-lg border-l-4 border-blue-500 bg-gradient-to-r from-blue-50 to-indigo-50 p-4 lg:mb-6 lg:p-6">
+                      <h3 className="mb-2 text-xl font-bold text-black lg:mb-3 lg:text-2xl">
+                        {courseReflections[tab].title}
+                      </h3>
+                      <div className="flex flex-wrap gap-2 text-xs lg:gap-4 lg:text-sm">
+                        <span className="rounded-full bg-blue-100 px-2 py-1 font-medium text-blue-700 lg:px-3">
+                          📚 {courseReflections[tab].topic}
+                        </span>
+                        <span className="rounded-full bg-green-100 px-2 py-1 font-medium text-green-700 lg:px-3">
+                          📅 {courseReflections[tab].period}
+                        </span>
+                      </div>
+                    </div>
+
+                    <div className="space-y-4 pb-8 lg:space-y-6">
+                      <h4 className="mb-3 flex items-center gap-2 text-base font-semibold text-gray-800 lg:mb-4 lg:text-lg">
+                        <span className="h-3 w-3 rounded-full bg-blue-500"></span>
+                        Key Learning Insights
+                      </h4>
+                      <div className="space-y-4">
+                        {courseReflections[tab].reflections.map(
+                          (reflection, index) => (
+                            <div
+                              key={index}
+                              className="rounded-r-lg border-l-4 border-blue-200 bg-gray-50 p-4 transition-colors duration-200 hover:bg-gray-100 lg:p-5"
+                            >
+                              <div className="flex items-start gap-3 lg:gap-4">
+                                <div className="mt-1 flex h-6 w-6 flex-shrink-0 items-center justify-center rounded-full bg-gradient-to-r from-blue-500 to-indigo-500 lg:h-7 lg:w-7">
+                                  <span className="text-xs font-bold text-white lg:text-sm">
+                                    {index + 1}
+                                  </span>
+                                </div>
+                                <p className="text-sm leading-relaxed text-black lg:text-base">
+                                  {reflection}
+                                </p>
+                              </div>
                             </div>
-                            <p className="text-black leading-relaxed text-sm lg:text-base">
-                              {reflection}
-                            </p>
-                          </div>
-                        </div>
-                      ))}
+                          ),
+                        )}
+                      </div>
                     </div>
-                  </div>
-                </motion.div>
-              </AnimatePresence>
+                  </motion.div>
+                </AnimatePresence>
+              </div>
             </div>
-          </div>
-        </section>
+          </section>
+
+          {/* Toolbox Section */}
+          <section className="py-12 lg:py-16">
+            <div className="mx-auto max-w-6xl px-4 lg:px-8">
+              <motion.div
+                initial={{ opacity: 0, y: 20 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.6, delay: 0.2 }}
+                className="text-center mb-8 lg:mb-12"
+              >
+                <h2 className="text-2xl font-bold text-gray-900 sm:text-3xl lg:text-4xl mb-4">
+                  My Development Toolbox
+                </h2>
+                <p className="text-gray-600 text-base lg:text-lg max-w-2xl mx-auto">
+                  Hardware & software tools that power my development workflow and enhance productivity
+                </p>
+              </motion.div>
+              
+              <motion.div
+                initial={{ opacity: 0, y: 30 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.6, delay: 0.4 }}
+              >
+                <ToolboxBento />
+              </motion.div>
+            </div>
+          </section>
+        </div>
       </div>
-    </div>
-  </section>
+    </section>
   );
 };
 
