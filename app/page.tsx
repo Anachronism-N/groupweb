@@ -47,7 +47,7 @@ export default async function Home() {
                   delay={HEADING_DELAY}
                   className="mx-auto max-w-2xl text-center text-4xl font-medium leading-tight tracking-tighter text-text-primary md:text-6xl md:leading-[64px]"
                 >
-                  Hey, I&apos;m Braydon! <br /> Welcome to my corner of the
+                  Hey, We are LLLN! <br /> Welcome to our corner of the
                   internet!
                 </AnimatedText>
               </GridWrapper>
@@ -58,10 +58,7 @@ export default async function Home() {
                     delay={PARAGRAPH_DELAY}
                     className="leading-8 text-text-secondary"
                   >
-                    I&apos;m a front-end developer with a love for design and a
-                    knack for tinkering. This site is intentionally
-                    over-engineered and serves as my playground for
-                    experimenting with new ideas and seeing what sticks!
+                    We are a creative team exploring the intersection of AI, storytelling, and interactive design. This site showcases our experiments in blending technology with imagination — where every idea is a step toward redefining digital creation!
                   </AnimatedText>
                 </div>
               </GridWrapper>
@@ -78,7 +75,7 @@ export default async function Home() {
           </section>
 
           {/* About Section */}
-          <section className="relative space-y-10 md:space-y-16">
+          <section className="relative space-y-6 md:space-y-8">
             {/* <AboutPattern /> */}
             <div className="space-y-4">
               <GridWrapper>
@@ -88,27 +85,23 @@ export default async function Home() {
               </GridWrapper>
               <GridWrapper>
                 <h2 className="mx-auto max-w-lg text-balance text-center text-3xl font-medium leading-10 tracking-tight text-text-primary md:text-4xl">
-                  Here&apos;s what sets me apart and makes me unique
+                  What makes our team stand out and unique
                 </h2>
               </GridWrapper>
             </div>
 
             <GridWrapper>
               <div className="grid grid-cols-1 gap-2 md:grid-cols-12 lg:grid-rows-[14]">
-                <div className="col-span-1 md:col-span-5 lg:col-span-5 lg:row-span-6">
-                  <AboutMeBento linkTo="/about" />
+                <div className="col-span-1 md:col-span-12 lg:col-span-12 lg:row-span-6">
+                  <AboutMeBento linkTo="/projects" />
                 </div>
-
-                <div className="md:col-span-12 lg:col-span-7 lg:row-span-8">
-                  <ConnectionsBento linkTo="/connections" />
-                </div>
-
-                <div className="md:col-span-7 md:row-start-1 lg:col-span-5 lg:row-span-7">
+              </div>
+            </GridWrapper>
+            
+            <GridWrapper>
+              <div className="grid grid-cols-1 gap-2 md:grid-cols-12 lg:grid-rows-[14]">
+                <div className="md:col-span-12 md:row-start-1 lg:col-span-12 lg:row-span-7">
                   <ToolboxBento linkTo="/toolbox" isHorizontalScroll={true} />
-                </div>
-
-                <div className="md:col-span-12 lg:col-span-7 lg:row-span-5">
-                  <CalendarBento />
                 </div>
               </div>
             </GridWrapper>
@@ -128,7 +121,7 @@ export default async function Home() {
               </GridWrapper>
               <GridWrapper>
                 <h2 className="mx-auto max-w-lg text-center text-3xl font-medium leading-10 tracking-tighter text-text-primary md:text-4xl">
-                  I like sharing my experiments && knowledge with others
+                 Our Moments & Memories
                 </h2>
               </GridWrapper>
             </div>
@@ -160,33 +153,6 @@ export default async function Home() {
             </div>
           </section>
 
-          {/* My Site Section */}
-          <section className="relative space-y-10 md:space-y-16">
-            {/* <MySitePattern /> */}
-            <div className="space-y-4 text-balance">
-              <GridWrapper>
-                <div className="text-center text-sm font-medium text-indigo-600">
-                  <span>My Site</span>
-                </div>
-              </GridWrapper>
-              <GridWrapper>
-                <h2 className="text-center text-3xl font-medium leading-10 tracking-tighter text-text-primary md:mx-auto md:max-w-lg md:text-4xl">
-                  My site is a playful sandbox. Explore, experiment, && say
-                  hello
-                </h2>
-              </GridWrapper>
-            </div>
-
-            <GridWrapper>
-              <div className="grid grid-cols-1 gap-2 md:grid-cols-2 lg:grid-cols-3">
-                <span className="col-span-1 h-[276px] sm:block md:hidden lg:block">
-                  <ChangelogBento />
-                </span>
-                <SpeakingBento />
-                <CommunityWallBento />
-              </div>
-            </GridWrapper>
-          </section>
 
           {/* Newsletter Section */}
           <section>

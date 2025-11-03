@@ -5,16 +5,16 @@ export function AboutMeBento({ linkTo }: { linkTo?: string }) {
   const timeOfDayGreeting = getTimeOfDayGreeting();
 
   return (
-    <BentoCard height="h-[275px] md:h-[304px] lg:h-[220px]" linkTo={linkTo}>
-      <div className="group flex h-full">
-        <div className="text-balance">
-          <h2 className="mb-4 text-base font-medium">Learn more about me</h2>
-          <p className="mb-2 text-balance pr-1 text-text-secondary md:pr-4">
+    <BentoCard height="h-[275px] md:h-[304px] lg:h-[320px]" linkTo={linkTo}>
+      <div className="group flex h-full items-center justify-between">
+        <div className="text-balance w-2/5 pr-4 md:w-1/2 md:pr-6">
+          <h2 className="mb-4 text-base font-medium">Learn more about our team</h2>
+          <p className="mb-2 text-balance text-text-secondary">
             {timeOfDayGreeting} <br />
-            I&apos;m Braydon, an experienced front-end developer.
+            We&apos;re LLLN, a creative team exploring AI, storytelling, and interactive design.We believe creativity should be redefined in the age of intelligence, where humans and AI co-create new narratives.
           </p>
         </div>
-        <div className="relative">
+        <div className="relative flex-shrink-0">
           <div className="group inline-block text-center">
             <div
               className="rounded-[20px] border border-border-primary p-2 transition-all duration-500 ease-out group-hover:border-indigo-400"
@@ -28,8 +28,8 @@ export function AboutMeBento({ linkTo }: { linkTo?: string }) {
           </div>
           <img
             className="absolute -top-1 left-0 h-[270px] w-[180px] rotate-[8deg] rounded-lg object-cover shadow transition-all duration-500 group-hover:rotate-[4deg] group-hover:scale-105"
-            src="/braydon_headshot_1.jpeg"
-            alt="A headshot"
+            src="/Me.png"
+            alt="Our team"
           />
         </div>
       </div>

@@ -79,7 +79,7 @@ export function ToolboxBento({
 
   return (
     <BentoCard linkTo={linkTo} height="md:h-auto lg:h-auto">
-      <div className="z-20 mb-4 text-center sm:mb-6">
+      <div className="z-20 mb-2 text-center sm:mb-3">
         <h2 className="text-sm font-medium sm:text-base">Toolbox</h2>
         <p className="mt-1 text-xs text-text-secondary sm:text-sm">
           Check out my favorite tools and spots around the web.

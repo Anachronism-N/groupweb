@@ -19,7 +19,7 @@ export default function About2Page() {
   return (
     <section className="relative min-h-screen" style={{ backgroundImage: 'url(/bg/bg_UVM.jpg)', backgroundSize: 'cover', backgroundPosition: 'center' }}>
       <div className="relative z-10 bg-black/5 dark:bg-black/20 min-h-screen mt-14">
-      <title>About | Braydon Coyer</title>
+      <title>About | Siyi Liu</title>
       <div className="relative space-y-10 md:space-y-16">
         {/* Title */}
         <GridWrapper className="space-y-12">
@@ -29,7 +29,7 @@ export default function About2Page() {
                 <span>{timeOfDayGreeting}</span>
               </div>
               <h1 className="mx-auto max-w-2xl text-balance text-center text-4xl font-medium leading-tight tracking-tighter text-text-primary md:text-5xl lg:text-left lg:text-6xl lg:leading-[64px]">
-                I&apos;m Braydon, a creative frontend engineer.
+                Under the Virtual Mirror.
               </h1>
             </div>
             <div className="order-1 my-12 flex-shrink-0 lg:order-2 lg:my-0">
@@ -82,7 +82,7 @@ export default function About2Page() {
             </GridWrapper>
             <GridWrapper>
               <h2 className="mx-auto max-w-xl text-balance text-3xl font-medium leading-[40px] tracking-tighter text-text-primary">
-                Here&apos;s a quick intro about me and what I love to do
+                Here&apos;s a quick intro to my interactive AI film project, where storytelling meets intelligent creation.
               </h2>
             </GridWrapper>
           </div>
@@ -105,16 +105,15 @@ export default function About2Page() {
                   </div>
                 </div>
                 <h2 className="mb-6 w-full text-balance text-3xl font-medium leading-[40px] tracking-tighter text-text-primary">
-                  My programming origins
+                  BACKGROUND
                 </h2>
                 <p className="mb-6 text-base leading-8 text-text-secondary">
-                  When Apple unveiled the first iPad with its beautiful 1024x768
-                  display, I knew I had to create for it. I taught myself mobile
-                  development while freelancing, and soon I was shipping iOS and
-                  Android apps. One of my games even climbed above Angry Birds
-                  in the charts for a while—which still makes me smile when I
-                  think about it.
-                </p>
+                  Under the Virtual Mirror transforms filmmaking into a co-creative experience.
+                  Blending AI-generated scripts, visuals, and interactive storytelling,
+                  it explores how technology enhances emotional depth and immersion. 
+                  Viewers shape Lin Mo's journey of self-redemption within the mysterious Heart Nexus,
+                  blurring the line between creator and audience.
+               </p>
               </div>
               <div className="hidden lg:order-1 lg:block">
                 <div className="relative mx-auto w-fit">
@@ -142,15 +141,10 @@ export default function About2Page() {
                   </div>
                 </div>
                 <h2 className="mb-6 w-full text-balance text-3xl font-medium leading-[40px] tracking-tighter text-text-primary">
-                  Finding My Way to Web
+                  IDEA
                 </h2>
                 <p className="mb-6 text-base leading-8 text-text-secondary">
-                  Despite my love for mobile development, the web kept calling
-                  my name. With my eye for design, frontend felt like the
-                  perfect playground. I dove into HTML, CSS, and JavaScript—with
-                  React in 2016 becoming my game-changer. A few months later and
-                  I had landed my first full-time web dev role and never looked
-                  back.
+                  Under the Virtual Mirror explores AI Co-narration, combining DeepSeek, ChatGPT, JiMeng, and Trae CN to create a full chain from script to interaction. Guided by Emotional Flow, every scene, sound, and rhythm reflects the protagonist’s inner journey. The film transforms storytelling into an immersive experience, where AI-driven scripts, prompt-based visuals, and interactive choices merge to let audiences feel the narrative rather than just watch it.
                 </p>
               </div>
               <div className="hidden lg:block">
@@ -179,21 +173,16 @@ export default function About2Page() {
                   </div>
                 </div>
                 <h2 className="mb-6 w-full text-balance text-3xl font-medium leading-[40px] tracking-tighter text-text-primary">
-                  Life Beyond Code
+                  Implementation
                 </h2>
                 <p className="mb-6 text-base leading-8 text-text-secondary">
-                  When I met PeggyJean, I knew pretty quickly she was the one.
-                  After proposing, we had grand wedding plans – until COVID
-                  happened. We pivoted (developer joke!) and had a small,
-                  intimate ceremony in 2020 that turned out more perfect than we
-                  could have imagined.
+                  This project integrates multiple AI tools to build a full creative chain—from script to interactive film. 
+                  DeepSeek and ChatGPT generated multi-branch narratives; Dreamina visualized characters and scenes through 
+                  prompt-based design; CapCut handled video and sound editing. Finally, Trae CN implemented branching logic, 
+                  allowing users to shape the story's outcome. The process explores emotional storytelling through AI collaboration, 
+                  transforming traditional passive viewing into an immersive, co-created experience.
                 </p>
-                <p className="mb-6 text-base leading-8 text-text-secondary">
-                  Family has always been my center, and seeing ours grow has
-                  been life&apos;s greatest joy. Our daughter ElizaJane arrived
-                  in 2021, bringing endless wonder to our days, and little Renny
-                  joined our crew in 2023, completing our circle.
-                </p>
+    
               </div>
               <div className="hidden lg:block">
                 <div className="relative mx-auto w-fit">
@@ -221,20 +210,16 @@ export default function About2Page() {
                   </div>
                 </div>
                 <h2 className="mb-6 w-full text-balance text-3xl font-medium leading-[40px] tracking-tighter text-text-primary">
-                  These Days
+                  RESULT
                 </h2>
                 <p className="mb-6 text-base leading-8 text-text-secondary">
-                  Currently, I&apos;m leading teams at LogicGate as a Senior
-                  Frontend Engineer where we&apos;re building some pretty
-                  awesome stuff. Speaking at tech conferences has become a
-                  regular part of my year.
-                </p>
-                <p className="mb-6 text-base leading-8 text-text-secondary">
-                  When I&apos;m not working, you&apos;ll find me on creative
-                  coding side projects, writing for my blog, failing
-                  spectacularly at games with friends, or—best of all—hanging
-                  out with my family, usually with coffee nearby and dad jokes
-                  at the ready.
+                  Viewers can influence Lin Mo’s fate through interactive choices,
+                  each reflecting an inner struggle—escape or confrontation, despair or redemption.
+                    The AI-generated visuals achieve cinematic consistency in lighting and tone, 
+                    symbolizing his emotional transformation. Piano and strings blend with ambient sounds 
+                    to create immersion, while dynamic energy effects amplify tension. 
+                    The project visualizes “emotional psychology” through atmosphere, 
+                    realizing an AI-driven participatory storytelling experience.
                 </p>
               </div>
               <div className="hidden lg:block">
@@ -251,29 +236,7 @@ export default function About2Page() {
           </div>
         </div>
 
-        {/* About */}
-        <div className="relative space-y-8 text-center">
-          <div className="space-y-4">
-            <GridWrapper>
-              <div className="text-center text-sm font-medium text-indigo-600">
-                <span>Experience</span>
-              </div>
-            </GridWrapper>
-            <GridWrapper>
-              <h2 className="mx-auto max-w-lg text-balance text-3xl font-medium leading-[40px] tracking-tighter text-text-primary">
-                My work history and achievements timeline.
-              </h2>
-            </GridWrapper>
-          </div>
-        </div>
-        <div className="space-y-16">
-          <GridWrapper>
-            <Resume />
-          </GridWrapper>
-          {/* <div className="flex justify-center">
-            <Button variant="secondary">Download Resume</Button>
-          </div> */}
-        </div>
+  
 
         <section className="relative space-y-16">
           <div className="space-y-4">
