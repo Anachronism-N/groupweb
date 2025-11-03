@@ -1,3 +1,4 @@
+import Image from "next/image";
 import { softwareData } from "../data/toolbox";
 import { BentoCard } from "./BentoCard";
 
@@ -25,10 +26,12 @@ const items = softwareData
                      hover:bg-white transition-all duration-200"
           style={{ boxShadow: "0px 2px 1.5px 0px #A5AEB852 inset" }}
         >
-          <img 
+          <Image 
             className="h-6 w-6 sm:h-7 sm:w-7 md:h-8 md:w-8 transition-all duration-200 hover:scale-105" 
             alt={item.title} 
-            src={item.imgSrc} 
+            src={item.imgSrc}
+            width={32}
+            height={32}
           />
         </div>
       </div>

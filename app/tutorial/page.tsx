@@ -15,6 +15,7 @@ type CourseReflection = {
   topic: string;
   period: string;
   reflections: string[];
+  content: string;
 };
 
 const Tutorial = () => {

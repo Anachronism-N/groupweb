@@ -1,6 +1,7 @@
 "use client";
 import React, { useState } from "react";
 import * as runtime from "react/jsx-runtime";
+import Image from "next/image";
 import { highlight } from "sugar-high";
 import Link from "next/link";
 
@@ -63,7 +64,7 @@ function CustomLink(props) {
 
 function RoundedImage(props) {
   return (
-    <img src={props.src} alt={props.alt} className="drama-shadow rounded-xl" />
+    <Image src={props.src} alt={props.alt} className="drama-shadow rounded-xl" width={800} height={600} />
   );
 }
 

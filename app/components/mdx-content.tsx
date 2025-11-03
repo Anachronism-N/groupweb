@@ -1,5 +1,6 @@
 import React from "react";
 import * as runtime from "react/jsx-runtime";
+import Image from "next/image";
 import { highlight } from "sugar-high";
 import { HorizontalLine } from "./HorizontalLine";
 import Link from "next/link";
@@ -56,7 +57,7 @@ function RoundedImage(props) {
       <span className="absolute inset-x-0 top-0">
         <HorizontalLine />
       </span>
-      <img src={props.src} alt={props.alt} className="rounded-3xl" />
+      <Image src={props.src} alt={props.alt} className="rounded-3xl" width={800} height={600} />
       <span className="absolute inset-x-0 bottom-0">
         <HorizontalLine />
       </span>
