@@ -368,7 +368,7 @@ const Tutorial = () => {
           </div>
           <div className="mx-auto flex w-full max-w-6xl flex-col items-start gap-6 py-8 lg:py-12">
             {/* 章节列表 - 修改为横向布局 */}
-            <div className="mx-auto flex w-full max-w-5xl overflow-x-auto rounded-xl border-b-2 border-b-blue-300 bg-white/95 p-4 shadow-xl backdrop-blur-sm">
+            <div className="mx-auto flex w-full max-w-5xl justify-center overflow-x-auto rounded-xl border-b-2 border-b-blue-300 bg-white/95 p-4 shadow-xl backdrop-blur-sm">
               {isLoading && (
                 <div className="w-full space-y-2">
                   <div className="h-8 w-full animate-pulse rounded bg-gray-200" />
@@ -379,7 +379,7 @@ const Tutorial = () => {
               )}
 
               {!isLoading && items && items.length > 0 && (
-                <div className="flex min-w-max gap-4">
+                <div className="flex justify-center gap-4">
                   {items.map((item, id) => (
                     <div
                       key={`${item.chapter}-${id}`}

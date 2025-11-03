@@ -20,7 +20,7 @@ export default function AboutPage() {
     <section
       className="relative min-h-screen"
       style={{
-        backgroundImage: "url(/bg/bg_lyx.jpg)",
+        backgroundImage: "url(/bg/bg_LYX.jpg)",
         backgroundSize: "cover",
         backgroundPosition: "center",
       }}
@@ -36,7 +36,7 @@ export default function AboutPage() {
                   <span>{timeOfDayGreeting}</span>
                 </div>
                 <h1 className="mx-auto max-w-2xl text-balance text-center text-4xl font-medium leading-tight tracking-tighter text-text-primary md:text-5xl lg:text-left lg:text-6xl lg:leading-[64px]">
-                  I&apos;m Braydon, a creative frontend engineer.
+                  I&apos;m Yixuan, a creative designer and developer.
                 </h1>
               </div>
               <div className="order-1 my-12 flex-shrink-0 lg:order-2 lg:my-0">
@@ -89,7 +89,7 @@ export default function AboutPage() {
               </GridWrapper>
               <GridWrapper>
                 <h2 className="mx-auto max-w-xl text-balance text-3xl font-medium leading-[40px] tracking-tighter text-text-primary">
-                  Here&apos;s a quick intro about me and what I love to do
+                  Here&apos;s a quick intro about my hackathon
                 </h2>
               </GridWrapper>
             </div>
@@ -112,15 +112,17 @@ export default function AboutPage() {
                     </div>
                   </div>
                   <h2 className="mb-6 w-full text-balance text-3xl font-medium leading-[40px] tracking-tighter text-text-primary">
-                    My programming origins
+                    BACKGROUND
                   </h2>
                   <p className="mb-6 text-base leading-8 text-text-secondary">
-                    When Apple unveiled the first iPad with its beautiful
-                    1024x768 display, I knew I had to create for it. I taught
-                    myself mobile development while freelancing, and soon I was
-                    shipping iOS and Android apps. One of my games even climbed
-                    above Angry Birds in the charts for a while—which still
-                    makes me smile when I think about it.
+                    What problem is this project trying to solve? AI-based
+                    educational tools for children are in high demand, but most
+                    lack interactivity and emotional engagement. This project
+                    introduces an “AI Learning Companion” that turns AI from a
+                    passive tool into an engaging learning partner. What kind of
+                    users would need this project? (1) Parents seeking
+                    personalized and effective learning experiences (2) Children
+                    who enjoy interactive and game-based learning
                   </p>
                 </div>
                 <div className="hidden lg:order-1 lg:block">
@@ -149,15 +151,18 @@ export default function AboutPage() {
                     </div>
                   </div>
                   <h2 className="mb-6 w-full text-balance text-3xl font-medium leading-[40px] tracking-tighter text-text-primary">
-                    Finding My Way to Web
+                    IDEA
                   </h2>
+
                   <p className="mb-6 text-base leading-8 text-text-secondary">
-                    Despite my love for mobile development, the web kept calling
-                    my name. With my eye for design, frontend felt like the
-                    perfect playground. I dove into HTML, CSS, and
-                    JavaScript—with React in 2016 becoming my game-changer. A
-                    few months later and I had landed my first full-time web dev
-                    role and never looked back.
+                    What features does this project need? 🧠 Personalized
+                    Learning: Uses NLP to track progress and interests,
+                    adjusting content dynamically. 🧸 Embodied Interaction:
+                    Enables two-way expression, movement, and voice interaction.
+                    🎮 Task Incentives: Completing tasks “feeds” or upgrades the
+                    pet, combining education with companionship. 📶
+                    Multi-Platform Support: Seamlessly connects mobile devices
+                    and smart hardware.
                   </p>
                 </div>
                 <div className="hidden lg:block">
@@ -186,20 +191,15 @@ export default function AboutPage() {
                     </div>
                   </div>
                   <h2 className="mb-6 w-full text-balance text-3xl font-medium leading-[40px] tracking-tighter text-text-primary">
-                    Life Beyond Code
+                    IMPLEMENTATION
                   </h2>
                   <p className="mb-6 text-base leading-8 text-text-secondary">
-                    When I met PeggyJean, I knew pretty quickly she was the one.
-                    After proposing, we had grand wedding plans – until COVID
-                    happened. We pivoted (developer joke!) and had a small,
-                    intimate ceremony in 2020 that turned out more perfect than
-                    we could have imagined.
-                  </p>
-                  <p className="mb-6 text-base leading-8 text-text-secondary">
-                    Family has always been my center, and seeing ours grow has
-                    been life&apos;s greatest joy. Our daughter ElizaJane
-                    arrived in 2021, bringing endless wonder to our days, and
-                    little Renny joined our crew in 2023, completing our circle.
+                    Design and prototyping used Figma for UI and Rhino for 3D
+                    modeling, with 3D printing for the physical prototype. The
+                    system runs on an ESP32-C3 with DS-S002M servos for
+                    real-time movement. Powered by Dify + RAG, it enables
+                    adaptive, context-aware interaction, creating an intelligent
+                    and responsive learning companion.
                   </p>
                 </div>
                 <div className="hidden lg:block">
@@ -228,20 +228,17 @@ export default function AboutPage() {
                     </div>
                   </div>
                   <h2 className="mb-6 w-full text-balance text-3xl font-medium leading-[40px] tracking-tighter text-text-primary">
-                    These Days
+                    🌈 RESULT
                   </h2>
                   <p className="mb-6 text-base leading-8 text-text-secondary">
-                    Currently, I&apos;m leading teams at LogicGate as a Senior
-                    Frontend Engineer where we&apos;re building some pretty
-                    awesome stuff. Speaking at tech conferences has become a
-                    regular part of my year.
-                  </p>
-                  <p className="mb-6 text-base leading-8 text-text-secondary">
-                    When I&apos;m not working, you&apos;ll find me on creative
-                    coding side projects, writing for my blog, failing
-                    spectacularly at games with friends, or—best of all—hanging
-                    out with my family, usually with coffee nearby and dad jokes
-                    at the ready.
+                    🎬 Prototype Demo The prototype was built on ESP32-S3 with
+                    DS-S002M servos, enabling real-time motion and emotional
+                    feedback. Children interact with the AI pet through voice
+                    and learning tasks. 🎨 Modeling & Structure Designed in
+                    Rhino and produced via 3D printing, ensuring stable servo
+                    integration and smooth motion. 🧠 AI & UI Design Interface
+                    created with Figma and z.ai; AI system built on Dify using
+                    RAG for contextual dialogue and personalized responses.
                   </p>
                 </div>
                 <div className="hidden lg:block">
